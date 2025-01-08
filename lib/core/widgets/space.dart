@@ -6,5 +6,5 @@ SizedBox verticalSpace(int height) {
 }
 
 SizedBox horizontalSpace(int width) {
-  return SizedBox(height: width.w);
+  return SizedBox(width: width.w);
 }

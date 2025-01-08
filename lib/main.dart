@@ -16,18 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      child: AnnotatedRegion(
-        value: SystemUiOverlayStyle(
-            systemNavigationBarColor: ColorPalette.backgroundColor,
-            statusBarColor: ColorPalette.backgroundColor),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ApplicationThemeManager.theme,
-          initialRoute: PagesRoutes.onBoardingView,
-          onGenerateRoute: AppRouter.onGenerateRoute,
+    return SafeArea(
+      child: ScreenUtilInit(
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        child: AnnotatedRegion(
+          value: SystemUiOverlayStyle(
+              systemNavigationBarColor: ColorPalette.backgroundColor,
+              statusBarColor: ColorPalette.backgroundColor),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ApplicationThemeManager.theme,
+            initialRoute: PagesRoutes.onBoardingView,
+            onGenerateRoute: AppRouter.onGenerateRoute,
+          ),
         ),
       ),
     );
