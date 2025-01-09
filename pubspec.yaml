@@ -36,6 +36,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_screenutil: ^5.9.3
+  dotted_border: ^2.0.0
+  r_dotted_line_border: ^0.1.1
+
 
 dev_dependencies:
   flutter_test:

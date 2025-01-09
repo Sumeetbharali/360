@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gym_management/core/theme/color_palette.dart';
 import 'package:gym_management/core/theme/text_styles.dart';
+import 'package:gym_management/core/widgets/auth_page_top.dart';
 import 'package:gym_management/core/widgets/button_with_icon.dart';
 import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/core/widgets/text_between_dividers.dart';
@@ -14,15 +14,7 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(children: [
-      const TopImage(),
-      verticalSpace(10),
-      CircleAvatar(
-        backgroundColor: ColorPalette.mainGreen,
-        radius: 25.sp,
-      ),
-      verticalSpace(10),
-      Text("Manage Your Gym", style: MyTextStyles.fontInter18MainGreenMedium),
-      verticalSpace(20),
+      AuthPageTop(image: TopImage()),
       TextBetweenDividers(text: "Log in or Sign up"),
       verticalSpace(25),
 
