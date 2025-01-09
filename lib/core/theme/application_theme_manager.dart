@@ -10,10 +10,10 @@ class ApplicationThemeManager {
         primary: ColorPalette.mainGreen,
         onPrimary: Colors.white,
         secondary: Colors.cyan,
-        onSecondary: Colors.white,
+        onSecondary: Colors.purple,
         error: Colors.red,
-        onError: Colors.white,
-        surface: ColorPalette.mainGreen,
-        onSurface: Colors.white),
+        onError: Colors.blueGrey,
+        surface: Colors.white,
+        onSurface: Colors.grey),
   );
 }
