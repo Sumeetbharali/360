@@ -35,6 +35,7 @@ class SignUp extends StatelessWidget {
           height: 25.h,
         ),
       ),
+
       verticalSpace(100),
       TextButton(
           onPressed: () {},
