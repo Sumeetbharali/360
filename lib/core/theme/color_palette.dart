@@ -5,4 +5,5 @@ class ColorPalette {
   static Color mainGreen = const Color(0xFF94D20F);
   static Color red = const Color(0xFFFF0000);
   static Color darkGrey = const Color(0xFF181515);
+  static Color lightGrey = const Color(0xFF2F2B2B);
 }
