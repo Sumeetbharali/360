@@ -1,4 +1,4 @@
 class PagesRoutes {
   static const String onBoardingView = "/";
-  static const String homeView = "/home";
+  static const String mainLayout = "/layout";
 }

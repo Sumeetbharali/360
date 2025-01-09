@@ -10,6 +10,11 @@ class MyTextStyles {
       color: ColorPalette.mainGreen,
       fontSize: 18.sp,
       fontWeight: MyFontWeights.medium);
+  static TextStyle fontInter18WhiteLight = TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 18,
+      color: Colors.white,
+      fontWeight: FontWeight.w300);
   static TextStyle fontInter15MainGreenMedium = TextStyle(
       fontFamily: 'Inter',
       color: ColorPalette.mainGreen,

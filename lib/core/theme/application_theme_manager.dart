@@ -4,6 +4,9 @@ import 'color_palette.dart';
 
 class ApplicationThemeManager {
   static ThemeData theme = ThemeData(
+    appBarTheme: AppBarTheme(
+        backgroundColor: ColorPalette.mainGreen,
+        iconTheme: IconThemeData(color: Colors.white)),
     scaffoldBackgroundColor: ColorPalette.backgroundColor,
     colorScheme: ColorScheme(
         brightness: Brightness.dark,
