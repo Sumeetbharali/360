@@ -14,6 +14,20 @@ class _MainLayoutState extends State<MainLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: SizedBox(
+        height: 70.h,
+        width: 70.w,
+        child: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: ColorPalette.red,
+          child: Icon(
+            Icons.add,
+            size: 40.sp,
+          ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        ),
+      ),
       backgroundColor: ColorPalette.darkGrey,
       body: const Column(
         children: [MyAppBar()],
@@ -25,7 +39,8 @@ class _MainLayoutState extends State<MainLayout> {
         ),
         child: BottomNavigationBar(
             selectedIconTheme: IconThemeData(size: 30.sp),
-            unselectedIconTheme: IconThemeData(size: 25.sp),
+            unselectedIconTheme:
+                IconThemeData(size: 25.sp, color: Colors.white),
             currentIndex: 0,
             onTap: (index) {},
             items: const [
