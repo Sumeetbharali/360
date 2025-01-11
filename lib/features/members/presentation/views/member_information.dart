@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_management/core/theme/text_styles.dart';
 import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/features/members/data/models/member_model.dart';
+import 'package:gym_management/features/members/presentation/widgets/member_information/member_info_body.dart';
 
 import '../../../../core/theme/color_palette.dart';
 import '../widgets/member_information/member_info_nav_bar.dart';
@@ -15,6 +16,7 @@ class MemberInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     MemberModel member =
         ModalRoute.of(context)!.settings.arguments as MemberModel;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -62,8 +64,11 @@ class MemberInformation extends StatelessWidget {
             verticalSpace(10),
             MemberTop(leftMargin: 140),
             verticalSpace(5),
+            MemberInfoBody(
+              member: member,
+            ),
             const Spacer(),
-            MemberInfoNavBar(),
+            const MemberInfoNavBar(),
             // const MemberInfoNavBar()
           ],
         ),
