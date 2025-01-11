@@ -20,7 +20,7 @@ class MemberDetailsField extends StatelessWidget {
       child: RichText(
         text: TextSpan(
             text: "$field: ",
-            style: MyTextStyles.fontInter12MainGreenRegular,
+            style: MyTextStyles.fontInter11MainGreenRegular,
             children: [
               TextSpan(text: value, style: const TextStyle(color: Colors.white))
             ]),

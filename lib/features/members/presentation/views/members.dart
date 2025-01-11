@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/features/members/presentation/widgets/drop_downs.dart';
 
@@ -14,9 +15,18 @@ class Members extends StatelessWidget {
       children: [
         const MyAppBar(),
         verticalSpace(10),
-        const DropDowns(),
-        verticalSpace(20),
-        AllMembers(),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            child: Column(
+              children: [
+                const DropDowns(),
+                verticalSpace(20),
+                const AllMembers(),
+              ],
+            ),
+          ),
+        )
       ],
     );
   }

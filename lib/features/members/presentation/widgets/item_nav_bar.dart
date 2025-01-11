@@ -18,35 +18,35 @@ class ItemNavBar extends StatelessWidget {
               onTap: () {},
               icon: Icon(
                 Icons.call,
-                size: 20.sp,
+                size: 18.sp,
               ),
               label: "Call"),
           ItemNavBarComponent(
               onTap: () {},
               icon: ImageIcon(
                 AssetImage("assets/icons/whatsappIcon.png"),
-                size: 20.sp,
+                size: 18.sp,
               ),
               label: "Whatsapp"),
           ItemNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.refresh,
-                size: 20.sp,
+                size: 18.sp,
               ),
               label: "Renew Plan"),
           ItemNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.message,
-                size: 20.sp,
+                size: 18.sp,
               ),
               label: "Message"),
           ItemNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.block,
-                size: 20.sp,
+                size: 18.sp,
               ),
               label: "Block"),
         ],

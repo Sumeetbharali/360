@@ -20,9 +20,9 @@ class MyTextStyles {
       color: ColorPalette.mainGreen,
       fontSize: 15.sp,
       fontWeight: MyFontWeights.medium);
-  static TextStyle fontInter12MainGreenRegular = TextStyle(
+  static TextStyle fontInter11MainGreenRegular = TextStyle(
       fontFamily: 'Inter',
       color: ColorPalette.mainGreen,
-      fontSize: 12.sp,
+      fontSize: 11.sp,
       fontWeight: MyFontWeights.regular);
 }

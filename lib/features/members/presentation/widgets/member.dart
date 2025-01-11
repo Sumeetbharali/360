@@ -6,8 +6,8 @@ import '../../../../core/widgets/space.dart';
 import 'item_nav_bar.dart';
 import 'member_details_field.dart';
 
-class MemberItem extends StatelessWidget {
-  MemberItem(
+class Member extends StatelessWidget {
+  Member(
       {super.key,
       required this.name,
       required this.dueAmount,
@@ -29,7 +29,6 @@ class MemberItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Avatar and delete button
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -42,15 +41,12 @@ class MemberItem extends StatelessWidget {
               GestureDetector(onTap: () {}, child: const Icon(Icons.delete)),
             ],
           ),
-
           verticalSpace(5),
           MemberDetailsField(
             field: 'Name',
             value: name,
             leftMargin: 40,
           ),
-
-          // Card Icon and ID field
           Row(
             children: [
               horizontalSpace(21),
@@ -62,7 +58,6 @@ class MemberItem extends StatelessWidget {
               MemberDetailsField(field: "M ID", value: id),
             ],
           ),
-
           MemberDetailsField(
               field: "Plan Expiry", value: expiryDate, leftMargin: 15),
           MemberDetailsField(

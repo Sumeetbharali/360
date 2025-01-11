@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'member_item.dart';
+import 'member.dart';
 
 class AllMembers extends StatelessWidget {
   const AllMembers({
@@ -12,17 +12,17 @@ class AllMembers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 3.w),
         child: GridView.builder(
-            itemCount: 4,
+            itemCount: 6,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.9,
+              childAspectRatio: 1.06,
               crossAxisCount: 2, // Two items per row
-              crossAxisSpacing: 25.w, // Space between columns
-              mainAxisSpacing: 20.h,
+              crossAxisSpacing: 15.w, // Space between columns
+              mainAxisSpacing: 15.h, // Space between rows
             ),
             itemBuilder: (context, index) {
-              return MemberItem(
+              return Member(
                 name: "Person",
                 id: "ID",
                 expiryDate: "DD / MM / YYYY",
