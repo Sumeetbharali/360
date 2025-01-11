@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/widgets/space.dart';
+import '../../../../core/widgets/space.dart';
 
 class MemberTop extends StatelessWidget {
-  const MemberTop({
-    super.key,
-  });
+  MemberTop({super.key, this.leftMargin = 65});
+
+  int leftMargin;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        horizontalSpace(65),
+        horizontalSpace(leftMargin),
         CircleAvatar(
           radius: 25.sp,
           backgroundColor: Colors.white,

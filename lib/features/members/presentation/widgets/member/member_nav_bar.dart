@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'member_nav_bar_component.dart';
+import '../../../../../core/theme/color_palette.dart';
+import '../member_nav_bar_component.dart';
 
 class MemberNavBar extends StatelessWidget {
   const MemberNavBar({
@@ -16,6 +17,7 @@ class MemberNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           MemberNavBarComponent(
+              style: TextStyle(fontSize: 7.sp, color: ColorPalette.mainGreen),
               onTap: () {},
               icon: Icon(
                 Icons.call,
@@ -23,6 +25,7 @@ class MemberNavBar extends StatelessWidget {
               ),
               label: "Call"),
           MemberNavBarComponent(
+              style: TextStyle(fontSize: 7.sp, color: ColorPalette.mainGreen),
               onTap: () {},
               icon: ImageIcon(
                 AssetImage("assets/icons/whatsappIcon.png"),
@@ -30,6 +33,7 @@ class MemberNavBar extends StatelessWidget {
               ),
               label: "Whatsapp"),
           MemberNavBarComponent(
+              style: TextStyle(fontSize: 7.sp, color: ColorPalette.mainGreen),
               onTap: () {},
               icon: Icon(
                 Icons.refresh,
@@ -37,6 +41,7 @@ class MemberNavBar extends StatelessWidget {
               ),
               label: "Renew Plan"),
           MemberNavBarComponent(
+              style: TextStyle(fontSize: 7.sp, color: ColorPalette.mainGreen),
               onTap: () {},
               icon: Icon(
                 Icons.message,
@@ -44,6 +49,7 @@ class MemberNavBar extends StatelessWidget {
               ),
               label: "Message"),
           MemberNavBarComponent(
+              style: TextStyle(fontSize: 7.sp, color: ColorPalette.mainGreen),
               onTap: () {},
               icon: Icon(
                 Icons.block,

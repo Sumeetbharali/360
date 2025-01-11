@@ -6,8 +6,8 @@ import 'package:gym_management/features/members/presentation/widgets/member/memb
 import '../../../../../core/theme/color_palette.dart';
 import '../../../../../core/widgets/space.dart';
 import '../../../data/models/member_model.dart';
+import '../member_top.dart';
 import 'member_nav_bar.dart';
-import 'member_top.dart';
 
 class Member extends StatelessWidget {
   Member({super.key, required this.member});
@@ -18,7 +18,8 @@ class Member extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, PagesRoutes.memberInformation);
+        Navigator.pushNamed(context, PagesRoutes.memberInformation,
+            arguments: member);
       },
       child: Container(
         padding: EdgeInsets.only(top: 3.h),
@@ -31,7 +32,7 @@ class Member extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const MemberTop(),
+            MemberTop(),
             verticalSpace(5),
             MemberBody(member: member),
             const Spacer(),

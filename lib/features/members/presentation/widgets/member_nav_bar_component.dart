@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/theme/color_palette.dart';
 
 class MemberNavBarComponent extends StatelessWidget {
   MemberNavBarComponent(
       {super.key,
       required this.onTap,
       required this.icon,
-      required this.label});
+      required this.label,
+      required this.style});
 
   void Function() onTap;
   Widget icon;
   String label;
+  TextStyle style;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class MemberNavBarComponent extends StatelessWidget {
           icon,
           Text(
             label,
-            style: TextStyle(fontSize: 7.sp, color: ColorPalette.mainGreen),
+            style: style,
           ),
         ],
       ),
