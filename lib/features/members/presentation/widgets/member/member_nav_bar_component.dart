@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/color_palette.dart';
+import '../../../../../core/theme/color_palette.dart';
 
-class ItemNavBarComponent extends StatelessWidget {
-  ItemNavBarComponent(
+class MemberNavBarComponent extends StatelessWidget {
+  MemberNavBarComponent(
       {super.key,
       required this.onTap,
       required this.icon,

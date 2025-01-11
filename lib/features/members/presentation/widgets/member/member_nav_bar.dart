@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gym_management/features/members/presentation/widgets/item_nav_bar_component.dart';
 
-class ItemNavBar extends StatelessWidget {
-  const ItemNavBar({
+import 'member_nav_bar_component.dart';
+
+class MemberNavBar extends StatelessWidget {
+  const MemberNavBar({
     super.key,
   });
 
@@ -14,35 +15,35 @@ class ItemNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ItemNavBarComponent(
+          MemberNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.call,
                 size: 18.sp,
               ),
               label: "Call"),
-          ItemNavBarComponent(
+          MemberNavBarComponent(
               onTap: () {},
               icon: ImageIcon(
                 AssetImage("assets/icons/whatsappIcon.png"),
                 size: 18.sp,
               ),
               label: "Whatsapp"),
-          ItemNavBarComponent(
+          MemberNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.refresh,
                 size: 18.sp,
               ),
               label: "Renew Plan"),
-          ItemNavBarComponent(
+          MemberNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.message,
                 size: 18.sp,
               ),
               label: "Message"),
-          ItemNavBarComponent(
+          MemberNavBarComponent(
               onTap: () {},
               icon: Icon(
                 Icons.block,

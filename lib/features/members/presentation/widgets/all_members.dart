@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/features/members/data/models/member_model.dart';
 
-import 'member.dart';
+import 'member/member.dart';
 
 class AllMembers extends StatelessWidget {
-  const AllMembers({
+  AllMembers({
     super.key,
   });
+
+  MemberModel member = MemberModel();
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +25,7 @@ class AllMembers extends StatelessWidget {
               mainAxisSpacing: 15.h, // Space between rows
             ),
             itemBuilder: (context, index) {
-              return Member(
-                name: "Person",
-                id: "ID",
-                expiryDate: "DD / MM / YYYY",
-                dueAmount: "Amount",
-              );
+              return Member(member: member);
             }),
       ),
     );

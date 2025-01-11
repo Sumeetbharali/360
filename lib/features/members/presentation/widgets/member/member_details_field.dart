@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theme/text_styles.dart';
+import '../../../../../core/theme/text_styles.dart';
 
 class MemberDetailsField extends StatelessWidget {
   MemberDetailsField(

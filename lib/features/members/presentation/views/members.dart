@@ -22,7 +22,7 @@ class Members extends StatelessWidget {
               children: [
                 const DropDowns(),
                 verticalSpace(20),
-                const AllMembers(),
+                AllMembers(),
               ],
             ),
           ),
