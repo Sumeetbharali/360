@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/features/login/presentation/views/login.dart';
+import 'package:gym_management/features/members/presentation/views/add_member.dart';
 import 'package:gym_management/features/members/presentation/views/member_information.dart';
 
 import '../../main_layout.dart';
@@ -19,6 +20,9 @@ class AppRouter {
       case PagesRoutes.memberInformation:
         return MaterialPageRoute(
             builder: (context) => MemberInformation(), settings: settings);
+      case PagesRoutes.addMember:
+        return MaterialPageRoute(
+            builder: (context) => AddMember(), settings: settings);
 
       default:
         return MaterialPageRoute(builder: (context) => const Placeholder()
