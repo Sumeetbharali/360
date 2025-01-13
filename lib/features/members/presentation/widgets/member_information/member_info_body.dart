@@ -1,13 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/core/theme/text_styles.dart';
+import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/features/members/data/models/member_model.dart';
+import 'package:gym_management/features/members/presentation/widgets/member_details_field.dart';
 
-class MemberInfoBody extends StatelessWidget {
+class MemberInfoBody extends StatefulWidget {
   MemberInfoBody({super.key, required this.member});
 
   MemberModel member;
 
   @override
+  State<MemberInfoBody> createState() => _MemberInfoBodyState();
+}
+
+List<String> training = ["Trainer", "Personal"];
+
+class _MemberInfoBodyState extends State<MemberInfoBody> {
+  String currentOption = training[0];
+
+  @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: []);
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      verticalSpace(10),
+      MemberDetailsField(
+        field: "Name ",
+        value: widget.member.name,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      Row(
+        children: [
+          ImageIcon(
+            const AssetImage("assets/icons/idCardLogo.png"),
+            size: 20.sp,
+          ),
+          horizontalSpace(10),
+          MemberDetailsField(
+            field: "M ID ",
+            value: widget.member.id,
+            fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+            valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+          ),
+        ],
+      ),
+      MemberDetailsField(
+        field: "Plan Expiry ",
+        value: widget.member.planExpiry,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      MemberDetailsField(
+        field: "Due Amount ",
+        value: widget.member.dueAmount,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      Row(
+        children: [
+          MemberDetailsField(
+            field: "Training -",
+            value: "",
+            fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+          ),
+          RadioListTile(
+              title: Text("Trainer"),
+              value: training[0],
+              groupValue: currentOption,
+              onChanged: (value) {
+                setState(() {
+                  currentOption = value.toString();
+                });
+              })
+        ],
+      )
+    ]);
   }
 }
