@@ -86,7 +86,7 @@ class _AddMemberState extends State<AddMember> {
                 )
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -122,7 +122,7 @@ class _AddMemberState extends State<AddMember> {
                     ))
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -150,7 +150,7 @@ class _AddMemberState extends State<AddMember> {
                 )
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               children: [
                 ImageIcon(
@@ -203,7 +203,7 @@ class _AddMemberState extends State<AddMember> {
                 ),
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -231,7 +231,7 @@ class _AddMemberState extends State<AddMember> {
                 )
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -350,7 +350,7 @@ class _AddMemberState extends State<AddMember> {
                 )
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(1),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -378,7 +378,7 @@ class _AddMemberState extends State<AddMember> {
                 )
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -406,7 +406,7 @@ class _AddMemberState extends State<AddMember> {
                 )
               ],
             ),
-            verticalSpace(15),
+            verticalSpace(10),
             Row(
               children: [
                 Text(
@@ -456,6 +456,231 @@ class _AddMemberState extends State<AddMember> {
                 ),
               ],
             ),
+            verticalSpace(10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Plan -:",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  height: 25.h,
+                  width: 284.w,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border(
+                        bottom: BorderSide(color: Colors.grey, width: 1.sp)),
+                  ),
+                  child: DropdownButton(
+                    isExpanded: true,
+                    padding: EdgeInsets.zero,
+                    dropdownColor: Colors.black,
+                    style: MyTextStyles.fontInter20WhiteLight,
+                    underline: SizedBox(),
+                    items: const [
+                      DropdownMenuItem(value: "Plan", child: Text("Plan"))
+                    ],
+                    onChanged: (x) {},
+                  ),
+                )
+              ],
+            ),
+            verticalSpace(10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Batch Time -:",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  height: 25.h,
+                  width: 222.w,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border(
+                        bottom: BorderSide(color: Colors.grey, width: 1.sp)),
+                  ),
+                  child: DropdownButton(
+                    isExpanded: true,
+                    padding: EdgeInsets.zero,
+                    dropdownColor: Colors.black,
+                    style: MyTextStyles.fontInter20WhiteLight,
+                    underline: SizedBox(),
+                    items: const [
+                      DropdownMenuItem(
+                          value: "Batch Time", child: Text("Batch Time"))
+                    ],
+                    onChanged: (x) {},
+                  ),
+                )
+              ],
+            ),
+            verticalSpace(10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Joining Date -:",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                SizedBox(
+                  height: 15.h,
+                  width: 80.w,
+                  child: TextFormField(
+                    style: MyTextStyles.fontInter15MainGreenMedium
+                        .copyWith(color: Colors.white),
+                    decoration: const InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey, // Default bottom border color
+                          width: 0.5, // Default bottom border thickness
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                horizontalSpace(10),
+                Text(
+                  "To",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                SizedBox(
+                  height: 15.h,
+                  width: 80.w,
+                  child: TextFormField(
+                    style: MyTextStyles.fontInter15MainGreenMedium
+                        .copyWith(color: Colors.white),
+                    decoration: const InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey, // Default bottom border color
+                          width: 0.5, // Default bottom border thickness
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            verticalSpace(10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Paid Amount -:",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                SizedBox(
+                  height: 15.h,
+                  width: 207.w,
+                  child: TextFormField(
+                    style: MyTextStyles.fontInter15MainGreenMedium
+                        .copyWith(color: Colors.white),
+                    decoration: const InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey, // Default bottom border color
+                          width: 0.5, // Default bottom border thickness
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            verticalSpace(10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Due Amount -:",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                SizedBox(
+                  height: 15.h,
+                  width: 209.w,
+                  child: TextFormField(
+                    style: MyTextStyles.fontInter15MainGreenMedium
+                        .copyWith(color: Colors.white),
+                    decoration: const InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey, // Default bottom border color
+                          width: 0.5, // Default bottom border thickness
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            verticalSpace(10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Payment Method -:",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
+                horizontalSpace(10),
+                SizedBox(
+                  height: 15.h,
+                  width: 169.w,
+                  child: TextFormField(
+                    style: MyTextStyles.fontInter15MainGreenMedium
+                        .copyWith(color: Colors.white),
+                    decoration: const InputDecoration(
+                      focusedBorder: InputBorder.none,
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.grey, // Default bottom border color
+                          width: 0.5, // Default bottom border thickness
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Spacer(),
+            GestureDetector(
+                onTap: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  height: 27.h,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white, // White shadow
+                          blurRadius: 2, // Blur intensity
+                          spreadRadius: 0.1, // Spread of the shadow
+                          offset: Offset(-0.75, 3), // Shadow position (x, y)
+                        ),
+                      ],
+                      border: Border.all(color: ColorPalette.mainGreen),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Text(
+                    "Save",
+                    style: MyTextStyles.fontInter18MainGreenMedium,
+                  ),
+                ))
           ],
         ),
       ),
