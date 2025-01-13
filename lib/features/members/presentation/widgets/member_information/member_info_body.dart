@@ -29,6 +29,7 @@ class _MemberInfoBodyState extends State<MemberInfoBody> {
         fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
         valueTextStyle: MyTextStyles.fontInter20WhiteLight,
       ),
+      verticalSpace(10),
       Row(
         children: [
           ImageIcon(
@@ -44,18 +45,21 @@ class _MemberInfoBodyState extends State<MemberInfoBody> {
           ),
         ],
       ),
+      verticalSpace(10),
       MemberDetailsField(
         field: "Plan Expiry ",
         value: widget.member.planExpiry,
         fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
         valueTextStyle: MyTextStyles.fontInter20WhiteLight,
       ),
+      verticalSpace(10),
       MemberDetailsField(
         field: "Due Amount ",
         value: widget.member.dueAmount,
         fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
         valueTextStyle: MyTextStyles.fontInter20WhiteLight,
       ),
+      verticalSpace(10),
       Row(
         children: [
           MemberDetailsField(
@@ -63,17 +67,108 @@ class _MemberInfoBodyState extends State<MemberInfoBody> {
             value: "",
             fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
           ),
-          RadioListTile(
-              title: Text("Trainer"),
-              value: training[0],
-              groupValue: currentOption,
-              onChanged: (value) {
-                setState(() {
-                  currentOption = value.toString();
-                });
-              })
+          Row(
+            children: [
+              Radio(
+                  fillColor: WidgetStateProperty.resolveWith((states) {
+                    if (states.contains(WidgetState.selected)) {
+                      return Colors.white; // Color when selected
+                    }
+                    return Colors.white; // Default color
+                  }),
+                  visualDensity: VisualDensity.compact,
+                  activeColor: Colors.white,
+                  value: training[0],
+                  groupValue: currentOption,
+                  onChanged: (value) {
+                    setState(() {
+                      currentOption = value.toString();
+                    });
+                  }),
+              Text(
+                "Trainer",
+                style: MyTextStyles.fontInter18MainGreenLight,
+              )
+            ],
+          ),
+          Row(
+            children: [
+              Radio(
+                  fillColor: WidgetStateProperty.resolveWith((states) {
+                    if (states.contains(WidgetState.selected)) {
+                      return Colors.white; // Color when selected
+                    }
+                    return Colors.white; // Default color
+                  }),
+                  visualDensity: VisualDensity.compact,
+                  activeColor: Colors.white,
+                  value: training[1],
+                  groupValue: currentOption,
+                  onChanged: (value) {
+                    setState(() {
+                      currentOption = value.toString();
+                    });
+                  }),
+              Text(
+                "Personal",
+                style: MyTextStyles.fontInter18MainGreenLight,
+              )
+            ],
+          ),
+
+          // Expanded(
+          //   child: RadioListTile(
+          //       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          //       visualDensity: const VisualDensity(
+          //           horizontal: VisualDensity.minimumDensity,
+          //           vertical: VisualDensity.minimumDensity),
+          //       dense: true,
+          //       contentPadding: EdgeInsets.zero,
+          //       title: Text(
+          //         "Personal",
+          //         style: MyTextStyles.fontInter15MainGreenMedium,
+          //       ),
+          //       value: training[1],
+          //       groupValue: currentOption,
+          //       onChanged: (value) {
+          //         setState(() {
+          //           currentOption = value.toString();
+          //         });
+          //       }),
+          // )
         ],
-      )
+      ),
+      verticalSpace(10),
+      MemberDetailsField(
+        field: "Plan ",
+        value: widget.member.plan,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      verticalSpace(10),
+      MemberDetailsField(
+        field: "Batch Time ",
+        value: widget.member.batchTime,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      verticalSpace(10),
+
+      // TODO
+      MemberDetailsField(
+        field: "Measurements ",
+        value: widget.member.height,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      verticalSpace(10),
+      MemberDetailsField(
+        field: "Information ",
+        value: widget.member.information,
+        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
+        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      ),
+      verticalSpace(10),
     ]);
   }
 }
