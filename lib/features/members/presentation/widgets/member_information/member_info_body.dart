@@ -5,6 +5,8 @@ import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/features/members/data/models/member_model.dart';
 import 'package:gym_management/features/members/presentation/widgets/member_details_field.dart';
 
+import '../../../../../core/theme/color_palette.dart';
+
 class MemberInfoBody extends StatefulWidget {
   MemberInfoBody({super.key, required this.member});
 
@@ -168,7 +170,30 @@ class _MemberInfoBodyState extends State<MemberInfoBody> {
         fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
         valueTextStyle: MyTextStyles.fontInter20WhiteLight,
       ),
-      verticalSpace(10),
+      verticalSpace(90),
+      GestureDetector(
+          onTap: () {},
+          child: Container(
+            margin: EdgeInsets.only(left: 115.w),
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            height: 27.h,
+            decoration: BoxDecoration(
+                color: Colors.black,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.white, // White shadow
+                    blurRadius: 2, // Blur intensity
+                    spreadRadius: 0.1, // Spread of the shadow
+                    offset: Offset(-0.75, 3), // Shadow position (x, y)
+                  ),
+                ],
+                border: Border.all(color: ColorPalette.mainGreen),
+                borderRadius: BorderRadius.circular(20)),
+            child: Text(
+              "Save",
+              style: MyTextStyles.fontInter18MainGreenMedium,
+            ),
+          ))
     ]);
   }
 }
