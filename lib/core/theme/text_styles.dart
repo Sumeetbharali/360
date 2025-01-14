@@ -40,6 +40,11 @@ class MyTextStyles {
       color: ColorPalette.mainGreen,
       fontSize: 20.sp,
       fontWeight: MyFontWeights.light);
+  static TextStyle fontInter20MainGreenSemiBold = TextStyle(
+      fontFamily: 'Inter',
+      color: ColorPalette.mainGreen,
+      fontSize: 20.sp,
+      fontWeight: MyFontWeights.semiBold);
   static TextStyle fontInter18MainGreenLight = TextStyle(
       fontFamily: 'Inter',
       color: ColorPalette.mainGreen,

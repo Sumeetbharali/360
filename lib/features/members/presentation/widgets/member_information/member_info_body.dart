@@ -155,20 +155,151 @@ class _MemberInfoBodyState extends State<MemberInfoBody> {
         valueTextStyle: MyTextStyles.fontInter20WhiteLight,
       ),
       verticalSpace(10),
-
-      // TODO
-      MemberDetailsField(
-        field: "Measurements ",
-        value: widget.member.height,
-        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
-        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Measurements -:",
+            style: MyTextStyles.fontInter20MainGreenLight,
+          ),
+          horizontalSpace(10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    "Height :",
+                    style: MyTextStyles.fontInter11MainGreenRegular,
+                  ),
+                  horizontalSpace(10),
+                  SizedBox(
+                    height: 10.h,
+                    width: 20.w,
+                    child: TextFormField(
+                      style: MyTextStyles.fontInter11MainGreenRegular
+                          .copyWith(color: Colors.white),
+                      decoration: const InputDecoration(
+                        focusedBorder: InputBorder.none,
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey,
+                            // Default bottom border color
+                            width: 0.5, // Default bottom border thickness
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  horizontalSpace(10),
+                  Text(
+                    "Weight :",
+                    style: MyTextStyles.fontInter11MainGreenRegular,
+                  ),
+                  horizontalSpace(10),
+                  SizedBox(
+                    height: 10.h,
+                    width: 20.w,
+                    child: TextFormField(
+                      style: MyTextStyles.fontInter11MainGreenRegular
+                          .copyWith(color: Colors.white),
+                      decoration: const InputDecoration(
+                        focusedBorder: InputBorder.none,
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey,
+                            // Default bottom border color
+                            width: 0.5, // Default bottom border thickness
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              verticalSpace(10),
+              Row(
+                children: [
+                  Text(
+                    "Chest :",
+                    style: MyTextStyles.fontInter11MainGreenRegular,
+                  ),
+                  horizontalSpace(10),
+                  SizedBox(
+                    height: 10.h,
+                    width: 20.w,
+                    child: TextFormField(
+                      style: MyTextStyles.fontInter11MainGreenRegular
+                          .copyWith(color: Colors.white),
+                      decoration: const InputDecoration(
+                        focusedBorder: InputBorder.none,
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey,
+                            // Default bottom border color
+                            width: 0.5, // Default bottom border thickness
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  horizontalSpace(10),
+                  Text(
+                    "Waist :",
+                    style: MyTextStyles.fontInter11MainGreenRegular,
+                  ),
+                  horizontalSpace(10),
+                  SizedBox(
+                    height: 10.h,
+                    width: 20.w,
+                    child: TextFormField(
+                      style: MyTextStyles.fontInter11MainGreenRegular
+                          .copyWith(color: Colors.white),
+                      decoration: const InputDecoration(
+                        focusedBorder: InputBorder.none,
+                        border: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.grey,
+                            // Default bottom border color
+                            width: 0.5, // Default bottom border thickness
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          )
+        ],
       ),
       verticalSpace(10),
-      MemberDetailsField(
-        field: "Information ",
-        value: widget.member.information,
-        fieldTextStyle: MyTextStyles.fontInter20MainGreenLight,
-        valueTextStyle: MyTextStyles.fontInter20WhiteLight,
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Add Information -:",
+            style: MyTextStyles.fontInter20MainGreenLight,
+          ),
+          horizontalSpace(10),
+          SizedBox(
+            height: 15.h,
+            width: 140.w,
+            child: TextFormField(
+              style: MyTextStyles.fontInter20MainGreenLight
+                  .copyWith(color: Colors.white),
+              decoration: const InputDecoration(
+                focusedBorder: InputBorder.none,
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey, // Default bottom border color
+                    width: 0.5, // Default bottom border thickness
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
       verticalSpace(90),
       GestureDetector(
@@ -197,3 +328,122 @@ class _MemberInfoBodyState extends State<MemberInfoBody> {
     ]);
   }
 }
+
+// Row(
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               children: [
+//                 Text(
+//                   "Measurements -:",
+//                   style: MyTextStyles.fontInter20MainGreenSemiBold,
+//                 ),
+//                 horizontalSpace(10),
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     Row(
+//                       children: [
+//                         Text(
+//                           "Height :",
+//                           style: MyTextStyles.fontInter11MainGreenRegular,
+//                         ),
+//                         horizontalSpace(10),
+//                         SizedBox(
+//                           height: 10.h,
+//                           width: 20.w,
+//                           child: TextFormField(
+//                             style: MyTextStyles.fontInter11MainGreenRegular
+//                                 .copyWith(color: Colors.white),
+//                             decoration: const InputDecoration(
+//                               focusedBorder: InputBorder.none,
+//                               border: UnderlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: Colors.grey,
+//                                   // Default bottom border color
+//                                   width: 0.5, // Default bottom border thickness
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                         horizontalSpace(10),
+//                         Text(
+//                           "Weight :",
+//                           style: MyTextStyles.fontInter11MainGreenRegular,
+//                         ),
+//                         horizontalSpace(10),
+//                         SizedBox(
+//                           height: 10.h,
+//                           width: 20.w,
+//                           child: TextFormField(
+//                             style: MyTextStyles.fontInter11MainGreenRegular
+//                                 .copyWith(color: Colors.white),
+//                             decoration: const InputDecoration(
+//                               focusedBorder: InputBorder.none,
+//                               border: UnderlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: Colors.grey,
+//                                   // Default bottom border color
+//                                   width: 0.5, // Default bottom border thickness
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                     verticalSpace(10),
+//                     Row(
+//                       children: [
+//                         Text(
+//                           "Chest :",
+//                           style: MyTextStyles.fontInter11MainGreenRegular,
+//                         ),
+//                         horizontalSpace(10),
+//                         SizedBox(
+//                           height: 10.h,
+//                           width: 20.w,
+//                           child: TextFormField(
+//                             style: MyTextStyles.fontInter11MainGreenRegular
+//                                 .copyWith(color: Colors.white),
+//                             decoration: const InputDecoration(
+//                               focusedBorder: InputBorder.none,
+//                               border: UnderlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: Colors.grey,
+//                                   // Default bottom border color
+//                                   width: 0.5, // Default bottom border thickness
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                         horizontalSpace(10),
+//                         Text(
+//                           "Waist :",
+//                           style: MyTextStyles.fontInter11MainGreenRegular,
+//                         ),
+//                         horizontalSpace(10),
+//                         SizedBox(
+//                           height: 10.h,
+//                           width: 20.w,
+//                           child: TextFormField(
+//                             style: MyTextStyles.fontInter11MainGreenRegular
+//                                 .copyWith(color: Colors.white),
+//                             decoration: const InputDecoration(
+//                               focusedBorder: InputBorder.none,
+//                               border: UnderlineInputBorder(
+//                                 borderSide: BorderSide(
+//                                   color: Colors.grey,
+//                                   // Default bottom border color
+//                                   width: 0.5, // Default bottom border thickness
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                   ],
+//                 )
+//               ],
+//             ),
