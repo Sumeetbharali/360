@@ -30,6 +30,11 @@ class MyTextStyles {
       color: Colors.black,
       fontSize: 20.sp,
       fontWeight: MyFontWeights.extraBold);
+  static TextStyle fontInter20MainGreenExtraBold = TextStyle(
+      fontFamily: 'Inter',
+      color: ColorPalette.mainGreen,
+      fontSize: 20.sp,
+      fontWeight: MyFontWeights.extraBold);
   static TextStyle fontInter20WhiteLight = TextStyle(
       fontFamily: 'Inter',
       color: Colors.white,

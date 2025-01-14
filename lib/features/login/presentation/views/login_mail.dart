@@ -40,7 +40,8 @@ class LoginMail extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () =>
+                    Navigator.pushNamed(context, PagesRoutes.mainLayout),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0)),
