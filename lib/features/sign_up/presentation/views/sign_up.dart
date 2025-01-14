@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/features/sign_up/presentation/widgets/sign_up_body.dart';
 
 import '../../../../core/theme/color_palette.dart';
@@ -50,7 +51,8 @@ class SignUp extends StatelessWidget {
           ),
           verticalSpace(20),
           GestureDetector(
-              onTap: () {},
+              onTap: () =>
+                  Navigator.pushNamed(context, PagesRoutes.planSelection),
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.w),
                 height: 45.h,

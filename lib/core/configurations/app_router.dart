@@ -3,6 +3,7 @@ import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/features/login/presentation/views/login_mail.dart';
 import 'package:gym_management/features/members/presentation/views/add_member.dart';
 import 'package:gym_management/features/members/presentation/views/member_information.dart';
+import 'package:gym_management/features/sign_up/presentation/views/plan_selection.dart';
 import 'package:gym_management/features/sign_up/presentation/views/sign_up.dart';
 
 import '../../features/login/presentation/views/login_options.dart';
@@ -26,6 +27,10 @@ class AppRouter {
       case PagesRoutes.signUp:
         return MaterialPageRoute(
             builder: (context) => const SignUp(), settings: settings);
+
+      case PagesRoutes.planSelection:
+        return MaterialPageRoute(
+            builder: (context) => const PlanSelection(), settings: settings);
 
       case PagesRoutes.memberInformation:
         return MaterialPageRoute(

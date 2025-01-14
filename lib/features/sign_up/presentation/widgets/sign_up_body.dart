@@ -13,7 +13,7 @@ class SignUpBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SignupField(text: "Gym", width: 262),
+        SignupField(text: "Gym Name", width: 203),
         verticalSpace(20),
         SignupField(text: "Gym License No.", width: 149),
         verticalSpace(20),
@@ -29,7 +29,7 @@ class SignUpBody extends StatelessWidget {
           children: [
             SignupField(text: "City", width: 70),
             horizontalSpace(10),
-            SignupField(text: "Pin Coad", width: 70),
+            SignupField(text: "Pin Code", width: 70),
           ],
         ),
         verticalSpace(20),
