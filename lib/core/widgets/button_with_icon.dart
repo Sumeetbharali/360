@@ -6,15 +6,17 @@ import 'package:gym_management/core/widgets/space.dart';
 import '../theme/color_palette.dart';
 
 class ButtonWithIcon extends StatelessWidget {
-  ButtonWithIcon({super.key, required this.text, required this.icon});
+  ButtonWithIcon(
+      {super.key, required this.text, required this.icon, required this.onTap});
 
   Widget icon;
   String text;
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           width: 350.w,

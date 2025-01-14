@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gym_management/core/theme/text_styles.dart';
-import 'package:gym_management/core/widgets/auth_page_top.dart';
-import 'package:gym_management/core/widgets/button_with_icon.dart';
-import 'package:gym_management/core/widgets/space.dart';
-import 'package:gym_management/core/widgets/text_between_dividers.dart';
-import 'package:gym_management/features/sign_up/presentation/widgets/top_image.dart';
+import 'package:gym_management/core/configurations/pages_routes.dart';
+import 'package:gym_management/features/sign_up/presentation/widgets/sign_up_body.dart';
+
+import '../../../../core/theme/color_palette.dart';
+import '../../../../core/theme/text_styles.dart';
+import '../../../../core/widgets/space.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -13,36 +13,70 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: [
-      AuthPageTop(image: TopImage()),
-      TextBetweenDividers(text: "Log in or Sign up"),
-      verticalSpace(25),
-
-      // Mail button
-      ButtonWithIcon(
-        text: "Continue with Mail",
-        icon: Icon(Icons.mail_outline_rounded),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            height: 700.h,
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: ColorPalette.mainGreen, width: 1.sp)),
+            margin: EdgeInsets.only(left: 10.w, top: 20.h, right: 10.w),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: ColorPalette.mainGreen,
+                    radius: 25.sp,
+                  ),
+                  Text("Sign Up",
+                      style: MyTextStyles.fontInter20MainGreenExtraBold
+                          .copyWith(fontSize: 30)),
+                  verticalSpace(20),
+                  SizedBox(
+                    width: 300.w,
+                    child: Divider(
+                      height: 1,
+                      color: ColorPalette.mainGreen,
+                    ),
+                  ),
+                  verticalSpace(30),
+                  const SignUpBody()
+                ],
+              ),
+            ),
+          ),
+          verticalSpace(20),
+          GestureDetector(
+              onTap: () =>
+                  Navigator.pushNamed(context, PagesRoutes.planSelection),
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 10.w),
+                height: 45.h,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.white, // White shadow
+                        blurRadius: 2, // Blur intensity
+                        spreadRadius: 0.1, // Spread of the shadow
+                        offset: Offset(0, 3), // Shadow position (x, y)
+                      ),
+                    ],
+                    border: Border.all(color: ColorPalette.mainGreen),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Text(
+                    "Continue",
+                    style: MyTextStyles.fontInter20MainGreenSemiBold,
+                  ),
+                ),
+              ))
+        ],
       ),
-      verticalSpace(25),
-      TextBetweenDividers(text: "OR"),
-      verticalSpace(25),
-
-      // Google button
-      ButtonWithIcon(
-        text: "Sign in with Google",
-        icon: Image.asset(
-          "assets/icons/google.png",
-          height: 25.h,
-        ),
-      ),
-
-      verticalSpace(100),
-      TextButton(
-          onPressed: () {},
-          child: Text(
-            "Contact us",
-            style: MyTextStyles.fontInter15MainGreenMedium,
-          ))
-    ]));
+    );
   }
 }
