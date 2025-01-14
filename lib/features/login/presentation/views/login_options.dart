@@ -31,7 +31,7 @@ class LoginOptions extends StatelessWidget {
 
       // Google button
       ButtonWithIcon(
-        onTap: () {},
+        onTap: () => Navigator.pushNamed(context, PagesRoutes.loginWithGoogle),
         text: "Sign in with Google",
         icon: Image.asset(
           "assets/icons/google.png",
