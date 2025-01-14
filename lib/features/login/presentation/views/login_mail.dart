@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/core/theme/color_palette.dart';
 import 'package:gym_management/core/widgets/auth_page_top.dart';
 import 'package:gym_management/core/widgets/space.dart';
@@ -8,8 +9,8 @@ import 'package:gym_management/features/login/presentation/widgets/my_text_field
 
 import '../widgets/top_image_with_Gradient.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginMail extends StatelessWidget {
+  const LoginMail({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,6 @@ class Login extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 15.w),
             child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Login"),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0)),
@@ -49,10 +49,13 @@ class Login extends StatelessWidget {
                     color: ColorPalette.mainGreen, // Border color
                     width: 0.8,
                   ),
-                )),
+                ),
+                child: const Text("Login")),
           ),
-          TextButton(onPressed: () {}, child: Text("Forgot Password?")),
-          TextButton(onPressed: () {}, child: Text("Contact us")),
+          TextButton(onPressed: () {}, child: const Text("Forgot Password?")),
+          TextButton(
+              onPressed: () => Navigator.pushNamed(context, PagesRoutes.signUp),
+              child: const Text("Sign up")),
         ],
       ),
     );

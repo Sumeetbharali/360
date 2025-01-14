@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../sign_up/presentation/widgets/top_image.dart';
+import 'top_image.dart';
 
 class TopImageWithGradient extends StatelessWidget {
   TopImageWithGradient({super.key});
