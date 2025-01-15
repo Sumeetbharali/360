@@ -5,29 +5,30 @@ import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';
 
 class MyTextField extends StatelessWidget {
-  MyTextField({super.key, required this.icon, required this.text});
+  MyTextField(
+      {super.key,
+      required this.icon,
+      required this.text,
+      this.controller,
+      this.validator,
+      this.isObscure = false});
 
   String text;
   Icon icon;
+  TextEditingController? controller;
+  String? Function(String?)? validator;
+  bool isObscure;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.w),
       child: TextFormField(
+        obscureText: isObscure,
+        controller: controller,
         style: MyTextStyles.fontInter15MainGreenMedium
             .copyWith(color: Colors.white),
-        validator: (value) {
-          var regex = RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-          if (value == null || value.trim().isEmpty) {
-            return "Please enter your email";
-          } else if (!regex.hasMatch(value)) {
-            return "Invalid E-mail";
-          }
-
-          return null;
-        },
+        validator: validator,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(top: 15),
           prefixIcon: icon,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
+import 'package:gym_management/features/auth_gate.dart';
 import 'package:gym_management/features/login/presentation/views/login_google.dart';
 import 'package:gym_management/features/login/presentation/views/login_mail.dart';
 import 'package:gym_management/features/members/presentation/views/add_member.dart';
@@ -7,7 +8,6 @@ import 'package:gym_management/features/members/presentation/views/member_inform
 import 'package:gym_management/features/sign_up/presentation/views/plan_selection.dart';
 import 'package:gym_management/features/sign_up/presentation/views/sign_up.dart';
 
-import '../../features/login/presentation/views/login_options.dart';
 import '../../main_layout.dart';
 
 class AppRouter {
@@ -15,7 +15,7 @@ class AppRouter {
     switch (settings.name) {
       case PagesRoutes.onBoardingView:
         return MaterialPageRoute(
-            builder: (context) => const LoginOptions(), settings: settings);
+            builder: (context) => const AuthGate(), settings: settings);
 
       case PagesRoutes.mainLayout:
         return MaterialPageRoute(
@@ -23,7 +23,7 @@ class AppRouter {
 
       case PagesRoutes.loginWithMail:
         return MaterialPageRoute(
-            builder: (context) => const LoginMail(), settings: settings);
+            builder: (context) => LoginMail(), settings: settings);
 
       case PagesRoutes.loginWithGoogle:
         return MaterialPageRoute(

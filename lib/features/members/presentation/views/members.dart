@@ -13,7 +13,12 @@ class Members extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const MyAppBar(),
+        MyAppBar(
+          onTap: () {
+            Scaffold.of(context).openDrawer();
+            print("Iam here");
+          },
+        ),
         verticalSpace(10),
         Expanded(
           child: Padding(

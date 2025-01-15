@@ -6,7 +6,9 @@ import 'package:gym_management/core/widgets/space.dart';
 import '../theme/color_palette.dart';
 
 class MyAppBar extends StatelessWidget {
-  const MyAppBar({super.key});
+  MyAppBar({super.key, required this.onTap});
+
+  Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,12 @@ class MyAppBar extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.menu,
-                  color: Colors.white,
+                GestureDetector(
+                  child: const Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                  onTap: onTap,
                 ),
                 horizontalSpace(130),
                 Container(
