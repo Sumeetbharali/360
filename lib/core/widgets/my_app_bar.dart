@@ -14,7 +14,7 @@ class MyAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
-      height: 100.h,
+      height: 105.h,
       color: ColorPalette.mainGreen,
       child: Column(
         children: [
@@ -45,12 +45,12 @@ class MyAppBar extends StatelessWidget {
             children: [
               SizedBox(
                 width: 250.w,
-                height: 35.h,
+                height: 38.h,
                 child: TextFormField(
                   style: TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(vertical: 1.h),
-                    hintText: "Name/ Mobile",
+                    hintText: "Search",
                     hintStyle: MyTextStyles.fontInter18WhiteLight,
                     prefixIcon: const Icon(Icons.search),
                     prefixIconColor: Colors.white,
@@ -64,22 +64,6 @@ class MyAppBar extends StatelessWidget {
                   onChanged: (searchBarController) {},
                 ),
               ),
-              horizontalSpace(3),
-              FilledButton(
-                onPressed: () {},
-                style: FilledButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    minimumSize: Size(30.w, 33.h),
-                    backgroundColor: Colors.black),
-                child: const Text(
-                  "SMS",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
-                ),
-              )
             ],
           )
         ],

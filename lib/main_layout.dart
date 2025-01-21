@@ -28,7 +28,9 @@ class _MainLayoutState extends State<MainLayout> {
           child: ListView(
             children: [
               GestureDetector(
-                onTap: authService.signOut,
+                onTap: () async {
+                  await authService.signOut();
+                },
                 child: Text(
                   "Log out",
                   style: MyTextStyles.fontInter20MainGreenExtraBold,

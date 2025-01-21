@@ -11,17 +11,19 @@ class AuthGate extends StatelessWidget {
     return StreamBuilder(
       stream: Supabase.instance.client.auth.onAuthStateChange,
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting)
-          return Scaffold(
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Scaffold(
               body: Center(
             child: CircularProgressIndicator(),
           ));
+        }
 
         final session = snapshot.hasData ? snapshot.data!.session : null;
-        if (session != null)
+        if (session != null) {
           return MainLayout();
-        else
+        } else {
           return LoginOptions();
+        }
       },
     );
   }
