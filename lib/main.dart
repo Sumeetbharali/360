@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ScreenUtilInit(
-        designSize: const Size(375, 812),
+        designSize: const Size(390, 844),
         minTextAdapt: true,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

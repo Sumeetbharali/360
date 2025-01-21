@@ -10,6 +10,7 @@ class TopImage extends StatelessWidget {
       height: 300.h,
       decoration: const BoxDecoration(
           image: DecorationImage(
+              fit: BoxFit.cover,
               image: AssetImage(
             "assets/images/iPhone 14 - noPain.png",
           )),

@@ -21,7 +21,6 @@ class TopImageWithGradient extends StatelessWidget {
                 Colors.red.withOpacity(0.1)
               ], begin: Alignment.bottomCenter, end: Alignment.center)),
           height: 300.h,
-          width: 365.w,
         )
       ],
     );
