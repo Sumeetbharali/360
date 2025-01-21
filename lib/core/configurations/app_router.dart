@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
-import 'package:gym_management/features/login/presentation/views/login_google.dart';
-import 'package:gym_management/features/login/presentation/views/login_mail.dart';
 import 'package:gym_management/features/members/presentation/views/add_member.dart';
 import 'package:gym_management/features/members/presentation/views/member_information.dart';
-import 'package:gym_management/features/sign_up/presentation/views/plan_selection.dart';
-import 'package:gym_management/features/sign_up/presentation/views/sign_up.dart';
 
-import '../../features/login/presentation/views/login_options.dart';
+import '../../features/auth/presentation/pages/login_google.dart';
+import '../../features/auth/presentation/pages/login_mail.dart';
+import '../../features/auth/presentation/pages/login_options.dart';
+import '../../features/auth/presentation/pages/plan_selection.dart';
+import '../../features/auth/presentation/pages/sign_up.dart';
 import '../../main_layout.dart';
 
 class AppRouter {

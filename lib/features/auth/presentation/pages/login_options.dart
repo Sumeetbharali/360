@@ -6,7 +6,8 @@ import 'package:gym_management/core/widgets/auth_page_top.dart';
 import 'package:gym_management/core/widgets/button_with_icon.dart';
 import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/core/widgets/text_between_dividers.dart';
-import 'package:gym_management/features/login/presentation/widgets/top_image.dart';
+
+import '../widgets/top_image.dart';
 
 class LoginOptions extends StatelessWidget {
   const LoginOptions({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gym_management/features/sign_up/presentation/widgets/signup_field.dart';
+import 'package:gym_management/features/auth/presentation/widgets/signup_field.dart';
 
 import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';

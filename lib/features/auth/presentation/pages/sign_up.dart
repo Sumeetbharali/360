@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
-import 'package:gym_management/features/sign_up/presentation/widgets/sign_up_body.dart';
 
 import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';
 import '../../../../core/widgets/space.dart';
+import '../widgets/sign_up_body.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});

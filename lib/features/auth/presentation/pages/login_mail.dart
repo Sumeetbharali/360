@@ -5,8 +5,8 @@ import 'package:gym_management/core/theme/color_palette.dart';
 import 'package:gym_management/core/widgets/auth_page_top.dart';
 import 'package:gym_management/core/widgets/space.dart';
 import 'package:gym_management/core/widgets/text_between_dividers.dart';
-import 'package:gym_management/features/login/presentation/widgets/my_text_field.dart';
 
+import '../widgets/my_text_field.dart';
 import '../widgets/top_image_with_Gradient.dart';
 
 class LoginMail extends StatelessWidget {
