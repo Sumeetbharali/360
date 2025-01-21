@@ -11,7 +11,7 @@ class SignupField extends StatelessWidget {
       required this.width,
       required this.onChanged});
 
-  final Function(String value) onChanged;
+  final Function(String value, String text) onChanged;
   String text;
   int width;
 
@@ -30,7 +30,9 @@ class SignupField extends StatelessWidget {
           width: width.w,
           child: TextFormField(
             onChanged: (value) {
-              onChanged(value);
+              print("I am .... $value");
+              onChanged(value, text);
+              print("Done<<<<<<<<<<<<<<<<<<<<<<<");
             },
             style: MyTextStyles.fontInter15MainGreenMedium
                 .copyWith(color: Colors.white),

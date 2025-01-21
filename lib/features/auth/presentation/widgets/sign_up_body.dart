@@ -1,12 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
 import 'package:gym_management/features/auth/presentation/widgets/signup_field.dart';
 
 import '../../../../core/widgets/space.dart';
 
 class SignUpBody extends StatelessWidget {
-  const SignUpBody({super.key, required this.onFieldChanged});
+  SignUpBody({super.key, required this.getData});
 
-  final Function(String value) onFieldChanged;
+  late SignUpModel user = SignUpModel();
+  final Function(SignUpModel) getData;
+
+  onFieldChanged(String value, String text) {
+    switch (text) {
+      case "Gym Name":
+        user.gym_name = value;
+        break;
+      case "Gym License No.":
+        user.license_no = value;
+        break;
+      case "Email":
+        user.email = value;
+        break;
+      case "Owner Name":
+        user.owner_name = value;
+        break;
+      case "Mobile No.":
+        user.mobile_no = value;
+        break;
+      case "Address":
+        user.address = value;
+        break;
+      case "Pin Code":
+        user.pin_code = value;
+        break;
+      case "City":
+        user.city = value;
+        break;
+      case "State":
+        user.state = value;
+        break;
+      case "Country":
+        user.country = value;
+        break;
+      case "Confirm Password":
+        user.confirm_password = value;
+        break;
+      case "Password":
+        user.password = value;
+        break;
+    }
+    getData(user);
+  }
 
   @override
   Widget build(BuildContext context) {

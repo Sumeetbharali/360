@@ -12,19 +12,18 @@ class SignUpModel {
       password,
       confirm_password;
 
-  SignUpModel(
-      {required this.gym_name,
-      required this.license_no,
-      required this.owner_name,
-      required this.email,
-      required this.mobile_no,
-      required this.address,
-      required this.city,
-      required this.pin_code,
-      required this.state,
-      required this.country,
-      required this.password,
-      required this.confirm_password});
+  SignUpModel({ this.gym_name = "",
+    this.license_no = "",
+    this.owner_name = "",
+    this.email = "",
+    this.mobile_no = "",
+    this.address = "",
+    this.city = "",
+    this.pin_code = "",
+    this.state = "",
+    this.country = "",
+    this.password = "",
+    this.confirm_password = ""});
 
   factory SignUpModel.fromJson(Map<String, dynamic> json) {
     return SignUpModel(

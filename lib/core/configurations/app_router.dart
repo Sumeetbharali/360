@@ -31,7 +31,7 @@ class AppRouter {
 
       case PagesRoutes.signUp:
         return MaterialPageRoute(
-            builder: (context) => const SignUp(), settings: settings);
+            builder: (context) => SignUp(), settings: settings);
 
       case PagesRoutes.planSelection:
         return MaterialPageRoute(

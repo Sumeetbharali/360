@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gym_management/core/configurations/pages_routes.dart';
+import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
 
 import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';
@@ -8,7 +8,13 @@ import '../../../../core/widgets/space.dart';
 import '../widgets/sign_up_body.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+  SignUp({super.key});
+
+  SignUpModel signUpUser = SignUpModel();
+
+  void getData(SignUpModel user) {
+    signUpUser = user;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +51,7 @@ class SignUp extends StatelessWidget {
                   ),
                   verticalSpace(30),
                   SignUpBody(
-                    onFieldChanged: (value) {},
+                    getData: getData,
                   )
                 ],
               ),
@@ -53,8 +59,7 @@ class SignUp extends StatelessWidget {
           ),
           verticalSpace(20),
           GestureDetector(
-              onTap: () =>
-                  Navigator.pushNamed(context, PagesRoutes.planSelection),
+              onTap: () => print("${signUpUser.gym_name}"),
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 10.w),
                 height: 45.h,
