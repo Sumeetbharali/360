@@ -44,7 +44,9 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   verticalSpace(30),
-                  const SignUpBody()
+                  SignUpBody(
+                    onFieldChanged: (value) {},
+                  )
                 ],
               ),
             ),
