@@ -42,9 +42,6 @@ class SignUpBody extends StatelessWidget {
       case "Country":
         user.country = value;
         break;
-      case "Confirm Password":
-        user.confirm_password = value;
-        break;
       case "Password":
         user.password = value;
         break;
