@@ -1,4 +1,4 @@
-class SignUpModel {
+class GymUserModel {
   String gym_name,
       license_no,
       owner_name,
@@ -9,9 +9,10 @@ class SignUpModel {
       pin_code,
       state,
       country,
-      password;
+      password,
+      plan;
 
-  SignUpModel({
+  GymUserModel({
     this.gym_name = "",
     this.license_no = "",
     this.owner_name = "",
@@ -23,10 +24,11 @@ class SignUpModel {
     this.state = "",
     this.country = "",
     this.password = "",
+    this.plan = "",
   });
 
-  factory SignUpModel.fromJson(Map<String, dynamic> json) {
-    return SignUpModel(
+  factory GymUserModel.fromJson(Map<String, dynamic> json) {
+    return GymUserModel(
       gym_name: json["gym_name"],
       license_no: json["license_no"],
       owner_name: json["owner_name"],
@@ -54,6 +56,7 @@ class SignUpModel {
       'state': state,
       'country': country,
       'password': password,
+      'plan': plan
     };
   }
 }

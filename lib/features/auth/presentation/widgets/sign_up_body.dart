@@ -7,8 +7,8 @@ import '../../../../core/widgets/space.dart';
 class SignUpBody extends StatelessWidget {
   SignUpBody({super.key, required this.getData});
 
-  late SignUpModel user = SignUpModel();
-  final Function(SignUpModel) getData;
+  late GymUserModel user = GymUserModel();
+  final Function(GymUserModel) getData;
 
   onFieldChanged(String value, String text) {
     switch (text) {

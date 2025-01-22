@@ -5,12 +5,27 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../models/sign_up_model.dart';
 
 abstract class AuthFirebaseService {
-  Future<Either> signup(SignUpModel user);
+  Future<Either> signup(GymUserModel user);
+
+  Future<Either> choosePlan(String plan) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    String uid = user!.uid;
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(uid)
+          .update({'plan': plan});
+      return const Right('Document updated successfully!');
+    } catch (e) {
+      return Left('Error updating document: $e');
+    }
+  }
 }
 
 class AuthFirebaseServiceImp extends AuthFirebaseService {
   @override
-  Future<Either> signup(SignUpModel user) async {
+  Future<Either> signup(GymUserModel user) async {
     try {
       print("email is ${user.email} password is ${user.password}");
       var returnedData = await FirebaseAuth.instance
@@ -37,6 +52,22 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
       }
 
       return Left(message);
+    }
+  }
+
+  @override
+  Future<Either> choosePlan(String plan) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    String uid = user!.uid;
+
+    try {
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(uid)
+          .update({'plan': plan});
+      return const Right('Document updated successfully!');
+    } catch (e) {
+      return Left('Error updating document: $e');
     }
   }
 }

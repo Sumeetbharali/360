@@ -10,7 +10,7 @@ class AuthRepositoriesImp implements AuthRepositories {
   AuthRepositoriesImp(this._authFirebaseService);
 
   @override
-  Future<Either> signup(SignUpModel user) async {
+  Future<Either> signup(GymUserModel user) async {
     final response = await _authFirebaseService.signup(user);
 
     return response.fold(
@@ -19,6 +19,20 @@ class AuthRepositoriesImp implements AuthRepositories {
       },
       (r) {
         return Right(true);
+      },
+    );
+  }
+
+  @override
+  Future<Either> choosePlan(String plan) async {
+    final response = await _authFirebaseService.choosePlan(plan);
+
+    return response.fold(
+      (l) {
+        return const Left(false);
+      },
+      (r) {
+        return const Right(true);
       },
     );
   }

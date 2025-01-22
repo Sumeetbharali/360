@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
 import 'package:gym_management/features/auth/presentation/manager/auth_cubit.dart';
 
@@ -12,9 +13,9 @@ import '../widgets/sign_up_body.dart';
 class SignUp extends StatelessWidget {
   SignUp({super.key});
 
-  SignUpModel signUpUser = SignUpModel();
+  GymUserModel signUpUser = GymUserModel();
 
-  void getData(SignUpModel user) {
+  void getData(GymUserModel user) {
     signUpUser = user;
   }
 
@@ -70,6 +71,11 @@ class SignUp extends StatelessWidget {
                     onTap: () {
                       myCubit.user = signUpUser;
                       myCubit.signUp();
+                      Navigator.pushNamedAndRemoveUntil(
+                          arguments: myCubit,
+                          context,
+                          PagesRoutes.planSelection,
+                          (Route<dynamic> route) => false);
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 10.w),

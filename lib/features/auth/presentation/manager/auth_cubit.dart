@@ -11,7 +11,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  SignUpModel user = SignUpModel();
+  GymUserModel user = GymUserModel();
   late SignUpUseCase _signUpUseCase;
   late AuthRepositories _authRepositories;
   late AuthFirebaseService _authFirebaseService;
@@ -35,14 +35,26 @@ class AuthCubit extends Cubit<AuthState> {
         return true; // Return true for success
       },
     );
-    // if (result) {
-    //   print("All good");
-    //   emit(AuthSignUpSuccess());
-    //   return true;
-    // } else {
-    //   print("A7a neeek");
-    //   emit(AuthSignUpFail());
-    //   return false;
-    // }
+  }
+
+  Future<bool> choosePlan() async {
+    _authFirebaseService = AuthFirebaseServiceImp();
+    _authRepositories = AuthRepositoriesImp(_authFirebaseService);
+    _signUpUseCase = SignUpUseCase(_authRepositories);
+    final result = await _signUpUseCase.excute(user);
+
+    return result.fold(
+      (l) {
+        // Handle the Left case (failure)
+        emit(AuthSignUpFail());
+        return false; // Return false for failure
+      },
+      (r) {
+        // Handle the Right case (success)
+        print("All good");
+        emit(AuthSignUpSuccess());
+        return true; // Return true for success
+      },
+    );
   }
 }
