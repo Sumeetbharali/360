@@ -2,25 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../models/plan_model.dart';
 import '../models/sign_up_model.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signup(GymUserModel user);
 
-  Future<Either> choosePlan(String plan) async {
-    User? user = FirebaseAuth.instance.currentUser;
-    String uid = user!.uid;
-
-    try {
-      await FirebaseFirestore.instance
-          .collection('Users')
-          .doc(uid)
-          .update({'plan': plan});
-      return const Right('Document updated successfully!');
-    } catch (e) {
-      return Left('Error updating document: $e');
-    }
-  }
+  Future<QuerySnapshot<PlanModel>> getPlans();
 }
 
 class AuthFirebaseServiceImp extends AuthFirebaseService {
@@ -56,18 +44,16 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
   }
 
   @override
-  Future<Either> choosePlan(String plan) async {
-    User? user = FirebaseAuth.instance.currentUser;
-    String uid = user!.uid;
+  Future<QuerySnapshot<PlanModel>> getPlans() async {
+    final plansCollection =
+        FirebaseFirestore.instance.collection('Plans').withConverter<PlanModel>(
+              fromFirestore: (snapshot, _) =>
+                  PlanModel.fromFirestore(snapshot.data()!),
+              toFirestore: (plan, _) => plan.toFirestore(),
+            );
 
-    try {
-      await FirebaseFirestore.instance
-          .collection('Users')
-          .doc(uid)
-          .update({'plan': plan});
-      return const Right('Document updated successfully!');
-    } catch (e) {
-      return Left('Error updating document: $e');
-    }
+    final querySnapshot = await plansCollection.get();
+
+    return querySnapshot;
   }
 }

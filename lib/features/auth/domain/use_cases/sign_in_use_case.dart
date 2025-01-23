@@ -6,7 +6,7 @@ class SignUpUseCase {
 
   SignUpUseCase(this._authRepositories);
 
-  excute(GymUserModel user) async {
+  execute(GymUserModel user) async {
     return await _authRepositories.signup(user);
   }
 }
