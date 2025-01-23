@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/features/auth/data/models/plan_model.dart';
 
 import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';
 import '../../../../core/widgets/space.dart';
 
 class Plan extends StatelessWidget {
-  const Plan({
-    super.key,
-  });
+  Plan({super.key, required this.plan});
 
+  PlanModel plan;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +22,7 @@ class Plan extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Plan",
+            plan.plan_name,
             style: MyTextStyles.fontInter20MainGreenSemiBold,
           ),
           Row(

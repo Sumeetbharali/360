@@ -45,9 +45,8 @@ class AuthCubit extends Cubit<AuthState> {
     _authFirebaseService = AuthFirebaseServiceImp();
     _authRepositories = AuthRepositoriesImp(_authFirebaseService);
     _getPlansUseCase = GetPlansUseCase(_authRepositories);
-    emit(AuthGetPlansLoading());
     final result = await _getPlansUseCase.execute();
-    return result.fold(
+    result.fold(
       (message) {
         emit(AuthGetPlansFail(message));
       },

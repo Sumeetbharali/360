@@ -1,12 +1,12 @@
 class PlanModel {
   final List<String> benefits;
   final num price;
-  final String planName;
+  final String plan_name;
 
   PlanModel({
     required this.benefits,
     required this.price,
-    required this.planName,
+    required this.plan_name,
   });
 
   // Factory constructor to create an instance from Firestore document data
@@ -14,7 +14,7 @@ class PlanModel {
     return PlanModel(
       benefits: List<String>.from(data['benefits'] ?? []),
       price: data['price'] ?? 0,
-      planName: data['planName'] ?? '',
+      plan_name: data['plan_name'] ?? '',
     );
   }
 
@@ -23,7 +23,7 @@ class PlanModel {
     return {
       'benefits': benefits,
       'price': price,
-      'planName': planName,
+      'plan_name': plan_name,
     };
   }
 }
