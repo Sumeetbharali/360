@@ -68,49 +68,56 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
                 verticalSpace(20),
-                BlocListener<AuthCubit, AuthState>(
+                BlocConsumer<AuthCubit, AuthState>(
                   listener: (context, state) {
                     if (state is AuthSignUpSuccess) {
+                      // Navigate to the main layout screen after successful signup
                       Navigator.pushNamedAndRemoveUntil(
-                          context, PagesRoutes.mainLayout, (router) => false);
+                        context,
+                        PagesRoutes.mainLayout,
+                        (router) => false,
+                      );
+                    } else if (state is AuthSignUpFail) {
+                      // Show an error message if signup fails
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("error")),
+                      );
                     }
                   },
-                  child: BlocBuilder<AuthCubit, AuthState>(
-                    builder: (context, state) {
-                      return GestureDetector(
-                          onTap: () {
-                            _formKey.currentState!.validate();
-                            var myCubit = context.read<AuthCubit>();
-                            myCubit.user = signUpUser;
-                            myCubit.signUp();
-                          },
-                          child: Container(
-                            margin: EdgeInsets.symmetric(horizontal: 10.w),
-                            height: 45.h,
-                            decoration: BoxDecoration(
-                                color: Colors.black,
-                                boxShadow: const [
-                                  BoxShadow(
-                                    color: Colors.white, // White shadow
-                                    blurRadius: 2, // Blur intensity
-                                    spreadRadius: 0.1, // Spread of the shadow
-                                    offset:
-                                        Offset(0, 3), // Shadow position (x, y)
-                                  ),
-                                ],
-                                border:
-                                    Border.all(color: ColorPalette.mainGreen),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                              child: Text(
-                                "Continue",
-                                style:
-                                    MyTextStyles.fontInter20MainGreenSemiBold,
-                              ),
+                  builder: (context, state) {
+                    return GestureDetector(
+                      onTap: () {
+                        if (_formKey.currentState!.validate()) {
+                          var myCubit = context.read<AuthCubit>();
+                          myCubit.user = signUpUser;
+                          myCubit.signUp();
+                        }
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 10.w),
+                        height: 45.h,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.white, // White shadow
+                              blurRadius: 2, // Blur intensity
+                              spreadRadius: 0.1, // Spread of the shadow
+                              offset: Offset(0, 3), // Shadow position (x, y)
                             ),
-                          ));
-                    },
-                  ),
+                          ],
+                          border: Border.all(color: ColorPalette.mainGreen),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Continue",
+                            style: MyTextStyles.fontInter20MainGreenSemiBold,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 )
               ],
             ),

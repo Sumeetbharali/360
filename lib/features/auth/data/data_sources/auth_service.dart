@@ -20,10 +20,12 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
           .createUserWithEmailAndPassword(
               email: user.email, password: user.password);
 
-      FirebaseFirestore.instance
+      final gymUserRef = FirebaseFirestore.instance
           .collection('Users')
-          .doc(returnedData.user!.uid)
-          .set(user.toJson());
+          .doc(returnedData.user!.uid);
+
+      gymUserRef.set(user.toJson());
+      await gymUserRef.collection('Members').add({});
 
       return const Right('Sign up successfully');
     } on FirebaseAuthException catch (e) {
