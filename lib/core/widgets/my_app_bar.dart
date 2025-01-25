@@ -21,13 +21,16 @@ class MyAppBar extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.menu,
-                  color: Colors.white,
+                GestureDetector(
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                  ),
+                  onTap: () => Scaffold.of(context).openDrawer(),
                 ),
                 horizontalSpace(130),
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       gradient:
                           LinearGradient(colors: [Colors.black, Colors.white])),
                   height: 35.h,

@@ -1,0 +1,10 @@
+import 'package:dartz/dartz.dart';
+import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
+
+abstract class AuthRepositories {
+  Future<Either> signup(GymUserModel user);
+  Future<Either> signIn(String email, String password);
+  Future<Either> getPlans();
+
+  Future<Either> signOut();
+}

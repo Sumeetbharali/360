@@ -5,10 +5,21 @@ import '../../../../core/theme/text_styles.dart';
 import '../../../../core/widgets/space.dart';
 
 class SignupField extends StatelessWidget {
-  SignupField({super.key, required this.text, required this.width});
+  SignupField(
+      {super.key,
+      required this.text,
+      required this.width,
+      required this.onChanged,
+      this.isObscure = false,
+      this.textInputType = TextInputType.text,
+      this.validator});
 
+  final Function(String value, String text) onChanged;
   String text;
   int width;
+  bool isObscure;
+  TextInputType textInputType;
+  String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +35,16 @@ class SignupField extends StatelessWidget {
           height: 15.h,
           width: width.w,
           child: TextFormField(
+            onChanged: (value) => onChanged(value, text),
+            validator: validator,
+            obscureText: isObscure,
+            keyboardType: textInputType,
             style: MyTextStyles.fontInter15MainGreenMedium
                 .copyWith(color: Colors.white),
             decoration: const InputDecoration(
+              errorMaxLines: 3,
               focusedBorder: InputBorder.none,
-              border: UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.grey, // Default bottom border color
-                  width: 0.5, // Default bottom border thickness
-                ),
-              ),
+              border: InputBorder.none,
             ),
           ),
         )

@@ -5,16 +5,26 @@ import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';
 
 class MyTextField extends StatelessWidget {
-  MyTextField({super.key, required this.icon, required this.text});
+  MyTextField(
+      {super.key,
+      required this.icon,
+      required this.text,
+      required this.getController});
 
   String text;
   Icon icon;
+  Function(String) getController;
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.w),
       child: TextFormField(
+        controller: controller,
+        onChanged: (_) {
+          getController(controller.text);
+        },
         style: MyTextStyles.fontInter15MainGreenMedium
             .copyWith(color: Colors.white),
         validator: (value) {

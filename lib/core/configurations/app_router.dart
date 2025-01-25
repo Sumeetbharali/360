@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
-import 'package:gym_management/features/login/presentation/views/login_google.dart';
-import 'package:gym_management/features/login/presentation/views/login_mail.dart';
+import 'package:gym_management/core/splash.dart';
+import 'package:gym_management/features/auth/presentation/manager/auth_cubit.dart';
 import 'package:gym_management/features/members/presentation/views/add_member.dart';
 import 'package:gym_management/features/members/presentation/views/member_information.dart';
-import 'package:gym_management/features/sign_up/presentation/views/plan_selection.dart';
-import 'package:gym_management/features/sign_up/presentation/views/sign_up.dart';
 
-import '../../features/login/presentation/views/login_options.dart';
+import '../../features/auth/presentation/pages/login_google.dart';
+import '../../features/auth/presentation/pages/login_mail.dart';
+import '../../features/auth/presentation/pages/login_options.dart';
+import '../../features/auth/presentation/pages/sign_up.dart';
 import '../../main_layout.dart';
 
 class AppRouter {
+  final AuthCubit myAuthCubit = AuthCubit();
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case PagesRoutes.onBoardingView:
@@ -23,7 +25,7 @@ class AppRouter {
 
       case PagesRoutes.loginWithMail:
         return MaterialPageRoute(
-            builder: (context) => const LoginMail(), settings: settings);
+            builder: (context) => LoginMail(), settings: settings);
 
       case PagesRoutes.loginWithGoogle:
         return MaterialPageRoute(
@@ -31,11 +33,11 @@ class AppRouter {
 
       case PagesRoutes.signUp:
         return MaterialPageRoute(
-            builder: (context) => const SignUp(), settings: settings);
+            builder: (context) => SignUp(), settings: settings);
 
-      case PagesRoutes.planSelection:
+      case PagesRoutes.splash:
         return MaterialPageRoute(
-            builder: (context) => const PlanSelection(), settings: settings);
+            builder: (context) => const SplashScreen(), settings: settings);
 
       case PagesRoutes.memberInformation:
         return MaterialPageRoute(
