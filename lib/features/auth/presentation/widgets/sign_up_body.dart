@@ -7,10 +7,11 @@ import '../../../../core/widgets/space.dart';
 class SignUpBody extends StatelessWidget {
   SignUpBody({super.key, required this.getData});
 
-  late GymUserModel user = GymUserModel();
   final Function(GymUserModel) getData;
 
-  onFieldChanged(String value, String text) {
+  late GymUserModel user = GymUserModel();
+
+  onFieldChanged(dynamic value, String text) {
     switch (text) {
       case "Gym Name":
         user.gym_name = value;
@@ -20,6 +21,7 @@ class SignUpBody extends StatelessWidget {
         break;
       case "Email":
         user.email = value;
+        print("Email: ${user.email}");
         break;
       case "Owner Name":
         user.owner_name = value;
@@ -44,8 +46,10 @@ class SignUpBody extends StatelessWidget {
         break;
       case "Password":
         user.password = value;
+        print("Password: ${user.password}");
         break;
     }
+
     getData(user);
   }
 
@@ -57,74 +61,149 @@ class SignUpBody extends StatelessWidget {
           text: "Gym Name",
           width: 203,
           onChanged: onFieldChanged,
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Required';
+          //   }
+          //   return null;
+          // },
         ),
-        verticalSpace(20),
+        verticalSpace(25),
         SignupField(
-            text: "Gym License No.", width: 149, onChanged: onFieldChanged),
-        verticalSpace(20),
-        SignupField(text: "Owner Name", width: 185, onChanged: onFieldChanged),
-        verticalSpace(20),
-        SignupField(text: "Email", width: 253, onChanged: onFieldChanged),
-        verticalSpace(20),
-        SignupField(text: "Mobile No.", width: 204, onChanged: onFieldChanged),
-        verticalSpace(20),
-        SignupField(text: "Address", width: 228, onChanged: onFieldChanged),
-        verticalSpace(20),
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Required';
+          //   }
+          //   return null;
+          // },
+          text: "Gym License No.",
+          width: 149,
+          onChanged: onFieldChanged,
+        ),
+        verticalSpace(25),
+        SignupField(
+            // validator: (value) {
+            //   if (value == null || value.isEmpty) {
+            //     return 'Required';
+            //   }
+            //   return null;
+            // },
+            text: "Owner Name",
+            width: 185,
+            onChanged: onFieldChanged),
+        verticalSpace(25),
+        SignupField(
+          text: "Email",
+          width: 253,
+          onChanged: onFieldChanged,
+          textInputType: TextInputType.emailAddress,
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Required';
+          //   }
+          //   final regex =
+          //       RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+          //   if (!regex.hasMatch(value)) {
+          //     return 'Not valid email address';
+          //   }
+          //   return null; // Validation passed
+          // },
+        ),
+        verticalSpace(25),
+        SignupField(
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Required';
+          //   }
+          //   return null;
+          // },
+          text: "Mobile No.",
+          width: 204,
+          onChanged: onFieldChanged,
+          textInputType: TextInputType.number,
+        ),
+        verticalSpace(25),
+        SignupField(
+            // validator: (value) {
+            //   if (value == null || value.isEmpty) {
+            //     return 'Required';
+            //   }
+            //   return null;
+            // },
+            text: "Address",
+            width: 228,
+            onChanged: onFieldChanged),
+        verticalSpace(25),
         Row(
           children: [
-            SignupField(text: "City", width: 70, onChanged: onFieldChanged),
+            SignupField(
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Required';
+                //   }
+                //   return null;
+                // },
+                text: "City",
+                width: 70,
+                onChanged: onFieldChanged),
             horizontalSpace(10),
-            SignupField(text: "Pin Code", width: 70, onChanged: onFieldChanged),
+            SignupField(
+              // validator: (value) {
+              //   if (value == null || value.isEmpty) {
+              //     return 'Required';
+              //   }
+              //   return null;
+              // },
+              text: "Pin Code",
+              width: 70,
+              onChanged: onFieldChanged,
+              textInputType: TextInputType.number,
+            ),
           ],
         ),
-        verticalSpace(20),
+        verticalSpace(25),
         Row(
           children: [
-            SignupField(text: "State", width: 70, onChanged: onFieldChanged),
+            SignupField(
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Required';
+                //   }
+                //   return null;
+                // },
+                text: "State",
+                width: 70,
+                onChanged: onFieldChanged),
             horizontalSpace(10),
-            SignupField(text: "Country", width: 70, onChanged: onFieldChanged),
+            SignupField(
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Required';
+                //   }
+                //   return null;
+                // },
+                text: "Country",
+                width: 70,
+                onChanged: onFieldChanged),
           ],
         ),
-        verticalSpace(20),
-        SignupField(text: "Password", width: 213, onChanged: onFieldChanged),
-        verticalSpace(20),
+        verticalSpace(25),
         SignupField(
-            text: "Confirm Password", width: 134, onChanged: onFieldChanged),
-        verticalSpace(20),
-        // Row(
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   children: [
-        //     Text(
-        //       "Upload Gym Logo -:",
-        //       style: MyTextStyles.fontInter20MainGreenSemiBold,
-        //     ),
-        //     GestureDetector(
-        //         onTap: () {},
-        //         child: Container(
-        //           margin: EdgeInsets.only(left: 5.w),
-        //           padding: EdgeInsets.symmetric(horizontal: 20.w),
-        //           height: 30.h,
-        //           width: 145.w,
-        //           decoration: BoxDecoration(
-        //               color: Colors.black,
-        //               border: Border.all(color: Colors.white),
-        //               borderRadius: BorderRadius.circular(10)),
-        //           child: Row(
-        //             mainAxisAlignment: MainAxisAlignment.center,
-        //             children: [
-        //               Icon(
-        //                 Icons.file_upload_outlined,
-        //                 color: ColorPalette.mainGreen,
-        //               ),
-        //               Text(
-        //                 "Upload",
-        //                 style: MyTextStyles.fontInter11MainGreenRegular,
-        //               ),
-        //             ],
-        //           ),
-        //         ))
-        //   ],
-        // ),
+          text: "Password",
+          width: 213,
+          onChanged: onFieldChanged,
+          isObscure: true,
+          // validator: (value) {
+          //   if (value == null || value.isEmpty) {
+          //     return 'Required';
+          //   }
+          //   if (value.length < 6) {
+          //     return 'Minimum 6 characters';
+          //   }
+          //   return null; // Validation passed
+          // },
+        ),
+        verticalSpace(25),
       ],
     );
   }

@@ -1,16 +1,19 @@
+import '../../../../core/models/gym_member_model.dart';
+
 class GymUserModel {
-  String gym_name,
-      license_no,
-      owner_name,
-      email,
-      mobile_no,
-      address,
-      city,
-      pin_code,
-      state,
-      country,
-      password,
-      plan;
+  String gym_name;
+  String license_no;
+  String owner_name;
+  String email;
+  String mobile_no;
+  String address;
+  String city;
+  String pin_code;
+  String state;
+  String country;
+  String password;
+  String plan;
+  List<GymMemberModel> gym_members;
 
   GymUserModel({
     this.gym_name = "",
@@ -25,6 +28,7 @@ class GymUserModel {
     this.country = "",
     this.password = "",
     this.plan = "",
+    this.gym_members = const [],
   });
 
   factory GymUserModel.fromJson(Map<String, dynamic> json) {
@@ -33,13 +37,18 @@ class GymUserModel {
       license_no: json["license_no"],
       owner_name: json["owner_name"],
       email: json["email"],
-      mobile_no: json["mobileNo"],
+      mobile_no: json["mobile_no"],
       address: json["address"],
       city: json["city"],
       pin_code: json["pin_code"],
       state: json["state"],
       country: json["country"],
       password: json["password"],
+      plan: json["plan"],
+      gym_members: (json["Members"] as List<dynamic>?)
+              ?.map((member) => GymMemberModel.fromJson(member))
+              .toList() ??
+          [],
     );
   }
 
@@ -56,7 +65,7 @@ class GymUserModel {
       'state': state,
       'country': country,
       'password': password,
-      'plan': plan
+      'plan': plan,
     };
   }
 }
