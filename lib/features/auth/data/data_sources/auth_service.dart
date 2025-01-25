@@ -28,8 +28,8 @@ class AuthServiceImp extends AuthService {
           .collection('Users')
           .doc(returnedData.user!.uid);
 
-      gymUserRef.set(user.toJson());
-      await gymUserRef.collection('Members').add({});
+      // gymUserRef.set(user.toJson());
+      // await gymUserRef.collection('Members').add({});
 
       return const Right('Sign up successfully');
     } on FirebaseAuthException catch (e) {
