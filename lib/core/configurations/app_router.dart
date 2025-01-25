@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
+import 'package:gym_management/core/splash.dart';
 import 'package:gym_management/features/auth/presentation/manager/auth_cubit.dart';
 import 'package:gym_management/features/members/presentation/views/add_member.dart';
 import 'package:gym_management/features/members/presentation/views/member_information.dart';
@@ -34,9 +35,9 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => SignUp(), settings: settings);
 
-      // case PagesRoutes.planSelection:
-      //   return MaterialPageRoute(
-      //       builder: (context) => PlanSelection(), settings: settings);
+      case PagesRoutes.splash:
+        return MaterialPageRoute(
+            builder: (context) => const SplashScreen(), settings: settings);
 
       case PagesRoutes.memberInformation:
         return MaterialPageRoute(

@@ -5,15 +5,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../models/plan_model.dart';
 import '../models/sign_up_model.dart';
 
-abstract class AuthFirebaseService {
+abstract class AuthService {
   Future<Either> signup(GymUserModel user);
 
   Future<Either> signIn(String email, String password);
 
+  Future<Either> signOut();
+
   Future<QuerySnapshot<PlanModel>> getPlans();
 }
 
-class AuthFirebaseServiceImp extends AuthFirebaseService {
+class AuthServiceImp extends AuthService {
   @override
   Future<Either> signup(GymUserModel user) async {
     try {
@@ -66,7 +68,7 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      return Right('Sign in successfully');
+      return const Right('Sign in successfully');
     } on FirebaseAuthException catch (e) {
       String message = '';
       if (e.code == 'user-not-found') {
@@ -75,6 +77,16 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
         message = 'Wrong password provided for that user.';
       }
       return Left(message);
+    }
+  }
+
+  @override
+  Future<Either> signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return const Right('Sign out successfully');
+    } on FirebaseAuthException catch (e) {
+      return Left(e.message);
     }
   }
 }

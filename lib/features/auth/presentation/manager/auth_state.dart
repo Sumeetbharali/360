@@ -13,6 +13,10 @@ final class AuthSignInSuccess extends AuthState {}
 
 final class AuthSignInFail extends AuthState {}
 
+final class AuthSignOutSuccess extends AuthState {}
+
+final class AuthSignOutFail extends AuthState {}
+
 final class AuthGetPlansSuccess extends AuthState {}
 
 final class AuthGetPlansFail extends AuthState {

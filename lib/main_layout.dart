@@ -30,11 +30,21 @@ class _MainLayoutState extends State<MainLayout> {
         color: ColorPalette.lightGrey,
         child: Column(
           children: [
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                "Sign out",
-                style: MyTextStyles.fontInter20MainGreenSemiBold,
+            BlocListener<AuthCubit, AuthState>(
+              listener: (context, state) {
+                if (state is AuthSignOutSuccess) {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, PagesRoutes.onBoardingView, (_) => false);
+                }
+              },
+              child: TextButton(
+                onPressed: () {
+                  authCubit.signOut();
+                },
+                child: Text(
+                  "Sign out",
+                  style: MyTextStyles.fontInter20MainGreenSemiBold,
+                ),
               ),
             )
           ],

@@ -8,6 +8,7 @@ import 'package:gym_management/features/auth/domain/use_cases/sign_up_use_case.d
 import 'package:meta/meta.dart';
 
 import '../../domain/use_cases/sign_in_use_case.dart';
+import '../../domain/use_cases/sign_out_use_case.dart';
 
 part 'auth_state.dart';
 
@@ -18,13 +19,14 @@ class AuthCubit extends Cubit<AuthState> {
   String email = '', password = '';
   late SignUpUseCase _signUpUseCase;
   late SignInUseCase _signInUseCase;
+  late SignOutUseCase _signOutUseCase;
   late GetPlansUseCase _getPlansUseCase;
   late AuthRepositories _authRepositories;
-  late AuthFirebaseService _authFirebaseService;
+  late AuthService _AuthService;
 
   Future<void> signUp() async {
-    _authFirebaseService = AuthFirebaseServiceImp();
-    _authRepositories = AuthRepositoriesImp(_authFirebaseService);
+    _AuthService = AuthServiceImp();
+    _authRepositories = AuthRepositoriesImp(_AuthService);
     _signUpUseCase = SignUpUseCase(_authRepositories);
     final result = await _signUpUseCase.execute(user);
 
@@ -42,10 +44,9 @@ class AuthCubit extends Cubit<AuthState> {
       },
     );
   }
-
   Future<void> signIn() async {
-    _authFirebaseService = AuthFirebaseServiceImp();
-    _authRepositories = AuthRepositoriesImp(_authFirebaseService);
+    _AuthService = AuthServiceImp();
+    _authRepositories = AuthRepositoriesImp(_AuthService);
     _signInUseCase = SignInUseCase(_authRepositories);
     final result = await _signInUseCase.execute(email, password);
 
@@ -63,10 +64,9 @@ class AuthCubit extends Cubit<AuthState> {
       },
     );
   }
-
   Future<void> getPlans() async {
-    _authFirebaseService = AuthFirebaseServiceImp();
-    _authRepositories = AuthRepositoriesImp(_authFirebaseService);
+    _AuthService = AuthServiceImp();
+    _authRepositories = AuthRepositoriesImp(_AuthService);
     _getPlansUseCase = GetPlansUseCase(_authRepositories);
     final result = await _getPlansUseCase.execute();
     result.fold(
@@ -75,6 +75,21 @@ class AuthCubit extends Cubit<AuthState> {
       },
       (data) {
         emit(AuthGetPlansSuccess());
+      },
+    );
+  }
+
+  Future<void> signOut() async {
+    _AuthService = AuthServiceImp();
+    _authRepositories = AuthRepositoriesImp(_AuthService);
+    _signOutUseCase = SignOutUseCase(_authRepositories);
+    final result = await _signOutUseCase.execute();
+    result.fold(
+      (message) {
+        emit(AuthSignOutFail());
+      },
+      (data) {
+        emit(AuthSignOutSuccess());
       },
     );
   }

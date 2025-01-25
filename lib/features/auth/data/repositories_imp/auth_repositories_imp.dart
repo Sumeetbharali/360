@@ -6,13 +6,13 @@ import '../models/plan_model.dart';
 import '../models/sign_up_model.dart';
 
 class AuthRepositoriesImp implements AuthRepositories {
-  AuthFirebaseService _authFirebaseService;
+  AuthService _AuthService;
 
-  AuthRepositoriesImp(this._authFirebaseService);
+  AuthRepositoriesImp(this._AuthService);
 
   @override
   Future<Either> signup(GymUserModel user) async {
-    final response = await _authFirebaseService.signup(user);
+    final response = await _AuthService.signup(user);
 
     return response.fold(
       (l) {
@@ -28,7 +28,7 @@ class AuthRepositoriesImp implements AuthRepositories {
   Future<Either> getPlans() async {
     // TODO: implement choosePlan
 
-    final result = await _authFirebaseService.getPlans();
+    final result = await _AuthService.getPlans();
 
     List<PlanModel> plans = result.docs.map((doc) => doc.data()).toList();
 
@@ -41,7 +41,7 @@ class AuthRepositoriesImp implements AuthRepositories {
 
   @override
   Future<Either<String, String>> signIn(String email, String password) async {
-    final result = await _authFirebaseService.signIn(email, password);
+    final result = await _AuthService.signIn(email, password);
 
     return result.fold(
       (message) {
@@ -54,5 +54,18 @@ class AuthRepositoriesImp implements AuthRepositories {
 
     // TODO: implement signIn
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either> signOut() async {
+    final result = await _AuthService.signOut();
+    return result.fold(
+      (message) {
+        return Left(message);
+      },
+      (message) {
+        return Right(message);
+      },
+    );
   }
 }
