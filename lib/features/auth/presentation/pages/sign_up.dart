@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
 import 'package:gym_management/features/auth/presentation/manager/auth_cubit.dart';
-import 'package:gym_management/main_layout.dart';
 
 import '../../../../core/theme/color_palette.dart';
 import '../../../../core/theme/text_styles.dart';
@@ -72,16 +72,18 @@ class SignUp extends StatelessWidget {
                   listener: (context, state) {
                     if (state is AuthSignUpSuccess) {
                       // Navigate to the main layout screen after successful signup
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BlocProvider.value(
-                            value: context.read<AuthCubit>(),
-                            child: const MainLayout(),
-                          ),
-                        ),
-                        (route) => false, // Removes all previous routes
-                      );
+                      // Navigator.pushAndRemoveUntil(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => BlocProvider.value(
+                      //       value: context.read<AuthCubit>(),
+                      //       child: const MainLayout(),
+                      //     ),
+                      //   ),
+                      //   (route) => false, // Removes all previous routes
+                      // );
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, PagesRoutes.mainLayout, (_) => false);
                     } else if (state is AuthSignUpFail) {
                       // Show an error message if signup fails
                       ScaffoldMessenger.of(context).showSnackBar(
