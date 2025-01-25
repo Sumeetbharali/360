@@ -9,16 +9,14 @@ final class AuthSignUpSuccess extends AuthState {}
 
 final class AuthSignUpFail extends AuthState {}
 
-final class AuthGetPlansSuccess extends AuthState {
-  List<PlanModel> plans;
+final class AuthSignInSuccess extends AuthState {}
 
-  AuthGetPlansSuccess(this.plans);
-}
+final class AuthSignInFail extends AuthState {}
+
+final class AuthGetPlansSuccess extends AuthState {}
 
 final class AuthGetPlansFail extends AuthState {
-  String message;
 
-  AuthGetPlansFail(this.message);
 }
 
 final class AuthGetPlansLoading extends AuthState {}

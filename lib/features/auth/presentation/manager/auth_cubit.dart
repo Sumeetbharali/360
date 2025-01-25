@@ -1,12 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:gym_management/features/auth/data/data_sources/auth_service.dart';
-import 'package:gym_management/features/auth/data/models/plan_model.dart';
 import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
 import 'package:gym_management/features/auth/data/repositories_imp/auth_repositories_imp.dart';
 import 'package:gym_management/features/auth/domain/repositories/auth_repositories.dart';
 import 'package:gym_management/features/auth/domain/use_cases/get_plans_use_case.dart';
-import 'package:gym_management/features/auth/domain/use_cases/sign_in_use_case.dart';
+import 'package:gym_management/features/auth/domain/use_cases/sign_up_use_case.dart';
 import 'package:meta/meta.dart';
+
+import '../../domain/use_cases/sign_in_use_case.dart';
 
 part 'auth_state.dart';
 
@@ -14,13 +15,14 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
   GymUserModel user = GymUserModel();
+  String email = '', password = '';
   late SignUpUseCase _signUpUseCase;
+  late SignInUseCase _signInUseCase;
   late GetPlansUseCase _getPlansUseCase;
   late AuthRepositories _authRepositories;
   late AuthFirebaseService _authFirebaseService;
-  List<PlanModel> plans = [];
 
-  Future<bool> signUp() async {
+  Future<void> signUp() async {
     _authFirebaseService = AuthFirebaseServiceImp();
     _authRepositories = AuthRepositoriesImp(_authFirebaseService);
     _signUpUseCase = SignUpUseCase(_authRepositories);
@@ -30,13 +32,34 @@ class AuthCubit extends Cubit<AuthState> {
       (l) {
         // Handle the Left case (failure)
         emit(AuthSignUpFail());
-        return false; // Return false for failure
+        // Return false for failure
       },
       (r) {
         // Handle the Right case (success)
         print("All good");
         emit(AuthSignUpSuccess());
-        return true; // Return true for success
+        // Return true for success
+      },
+    );
+  }
+
+  Future<void> signIn() async {
+    _authFirebaseService = AuthFirebaseServiceImp();
+    _authRepositories = AuthRepositoriesImp(_authFirebaseService);
+    _signInUseCase = SignInUseCase(_authRepositories);
+    final result = await _signInUseCase.execute(email, password);
+
+    return result.fold(
+      (l) {
+        // Handle the Left case (failure)
+        emit(AuthSignInFail());
+        // Return false for failure
+      },
+      (r) {
+        // Handle the Right case (success)
+        print("All good");
+        emit(AuthSignInSuccess());
+        // Return true for success
       },
     );
   }
@@ -48,11 +71,10 @@ class AuthCubit extends Cubit<AuthState> {
     final result = await _getPlansUseCase.execute();
     result.fold(
       (message) {
-        emit(AuthGetPlansFail(message));
+        emit(AuthGetPlansFail());
       },
       (data) {
-        plans = data;
-        emit(AuthGetPlansSuccess(plans));
+        emit(AuthGetPlansSuccess());
       },
     );
   }

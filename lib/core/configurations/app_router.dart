@@ -7,7 +7,6 @@ import 'package:gym_management/features/members/presentation/views/member_inform
 import '../../features/auth/presentation/pages/login_google.dart';
 import '../../features/auth/presentation/pages/login_mail.dart';
 import '../../features/auth/presentation/pages/login_options.dart';
-import '../../features/auth/presentation/pages/plan_selection.dart';
 import '../../features/auth/presentation/pages/sign_up.dart';
 import '../../main_layout.dart';
 
@@ -25,7 +24,7 @@ class AppRouter {
 
       case PagesRoutes.loginWithMail:
         return MaterialPageRoute(
-            builder: (context) => const LoginMail(), settings: settings);
+            builder: (context) => LoginMail(), settings: settings);
 
       case PagesRoutes.loginWithGoogle:
         return MaterialPageRoute(
@@ -35,9 +34,9 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (context) => SignUp(), settings: settings);
 
-      case PagesRoutes.planSelection:
-        return MaterialPageRoute(
-            builder: (context) => PlanSelection(), settings: settings);
+      // case PagesRoutes.planSelection:
+      //   return MaterialPageRoute(
+      //       builder: (context) => PlanSelection(), settings: settings);
 
       case PagesRoutes.memberInformation:
         return MaterialPageRoute(

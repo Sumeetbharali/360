@@ -1,12 +1,11 @@
-import 'package:gym_management/features/auth/data/models/sign_up_model.dart';
 import 'package:gym_management/features/auth/domain/repositories/auth_repositories.dart';
 
-class SignUpUseCase {
+class SignInUseCase {
   final AuthRepositories _authRepositories;
 
-  SignUpUseCase(this._authRepositories);
+  SignInUseCase(this._authRepositories);
 
-  execute(GymUserModel user) async {
-    return await _authRepositories.signup(user);
+  execute(String email, String password) async {
+    return await _authRepositories.signIn(email, password);
   }
 }

@@ -38,4 +38,21 @@ class AuthRepositoriesImp implements AuthRepositories {
       return const Left("Something Wrong");
     }
   }
+
+  @override
+  Future<Either<String, String>> signIn(String email, String password) async {
+    final result = await _authFirebaseService.signIn(email, password);
+
+    return result.fold(
+      (message) {
+        return Left(message);
+      },
+      (message) {
+        return Right(message);
+      },
+    );
+
+    // TODO: implement signIn
+    throw UnimplementedError();
+  }
 }

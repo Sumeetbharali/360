@@ -8,6 +8,8 @@ import '../models/sign_up_model.dart';
 abstract class AuthFirebaseService {
   Future<Either> signup(GymUserModel user);
 
+  Future<Either> signIn(String email, String password);
+
   Future<QuerySnapshot<PlanModel>> getPlans();
 }
 
@@ -57,5 +59,22 @@ class AuthFirebaseServiceImp extends AuthFirebaseService {
     final querySnapshot = await plansCollection.get();
 
     return querySnapshot;
+  }
+
+  @override
+  Future<Either> signIn(String email, String password) async {
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      return Right('Sign in successfully');
+    } on FirebaseAuthException catch (e) {
+      String message = '';
+      if (e.code == 'user-not-found') {
+        message = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Wrong password provided for that user.';
+      }
+      return Left(message);
+    }
   }
 }
