@@ -4,27 +4,28 @@ class MemberModel {
     this.id = "ID",
     this.planExpiry = "DD / MM / YYYY",
     this.dueAmount = "Amount",
-    this.isTrainer = true,
-    this.plan = "Plan",
+      this.training = "Trainer",
+      this.plan = "Plan",
     this.batchTime = "00:00 to 00:00",
     this.height = "Height",
     this.weight = "Weight",
     this.chest = "Chest",
     this.waist = "Waist",
     this.information = "More information",
-  });
+      this.gender = "Gender"});
 
   String name;
   String id;
   String planExpiry;
   String dueAmount;
-  bool isTrainer;
+  String training;
   String plan;
   String batchTime;
   String height;
   String weight;
   String chest;
   String waist;
+  String gender;
   String information;
 
   // Convert from Firestore Map to MemberModel
@@ -34,15 +35,15 @@ class MemberModel {
       id: json['id'] ?? "ID",
       planExpiry: json['planExpiry'] ?? "DD / MM / YYYY",
       dueAmount: json['dueAmount'] ?? "Amount",
-      isTrainer: json['isTrainer'] ?? true,
-      plan: json['plan'] ?? "Plan",
+        training: json['isTrainer'] ?? "Trainer",
+        plan: json['plan'] ?? "Plan",
       batchTime: json['batchTime'] ?? "00:00 to 00:00",
       height: json['height'] ?? "Height",
       weight: json['weight'] ?? "Weight",
       chest: json['chest'] ?? "Chest",
       waist: json['waist'] ?? "Waist",
       information: json['information'] ?? "More information",
-    );
+        gender: json['gender'] ?? "Gender");
   }
 
   // Convert MemberModel to Firestore Map
@@ -52,7 +53,7 @@ class MemberModel {
       'id': id,
       'planExpiry': planExpiry,
       'dueAmount': dueAmount,
-      'isTrainer': isTrainer,
+      'training': training,
       'plan': plan,
       'batchTime': batchTime,
       'height': height,
@@ -60,6 +61,7 @@ class MemberModel {
       'chest': chest,
       'waist': waist,
       'information': information,
+      'gender': gender
     };
   }
 }

@@ -50,22 +50,6 @@ class _MainLayoutState extends State<MainLayout> {
           ],
         ),
       ),
-      floatingActionButton: SizedBox(
-        height: 70.h,
-        width: 70.w,
-        child: FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, PagesRoutes.addMember);
-          },
-          backgroundColor: ColorPalette.red,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-          child: Icon(
-            Icons.add,
-            size: 40.sp,
-          ),
-        ),
-      ),
       backgroundColor: ColorPalette.darkGrey,
       body: Members(),
       bottomNavigationBar: MyNavigationBar(),
