@@ -24,9 +24,11 @@ class AuthServiceImp extends AuthService {
           .createUserWithEmailAndPassword(
               email: user.email, password: user.password);
 
-      final gymUserRef = FirebaseFirestore.instance
+      print(">>>>>>>>>>>>>>>Newly signed my Id is ${returnedData.user!.uid}");
+      FirebaseFirestore.instance
           .collection('Users')
-          .doc(returnedData.user!.uid);
+          .doc(returnedData.user!.uid)
+          .set(user.toJson());
 
       // gymUserRef.set(user.toJson());
       // await gymUserRef.collection('Members').add({});

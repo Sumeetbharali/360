@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_management/core/widgets/space.dart';
+import 'package:gym_management/features/members/presentation/manager/members_cubit.dart';
 import 'package:gym_management/features/members/presentation/widgets/drop_downs.dart';
 
 import '../../../../core/widgets/my_app_bar.dart';
@@ -11,23 +13,26 @@ class Members extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const MyAppBar(),
-        verticalSpace(10),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Column(
-              children: [
-                const DropDowns(),
-                verticalSpace(20),
-                AllMembers(),
-              ],
+    return BlocProvider(
+      create: (context) => MembersCubit(),
+      child: Column(
+        children: [
+          const MyAppBar(),
+          verticalSpace(10),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: Column(
+                children: [
+                  const DropDowns(),
+                  verticalSpace(20),
+                  AllMembers(),
+                ],
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

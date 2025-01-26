@@ -1,0 +1,25 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "gym360-d9898",
+          "appId": "1:1030754800289:android:bc0902b7821038f40a56e0",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "gym360-d9898",
+          "configurations": {
+            "android": "1:1030754800289:android:bc0902b7821038f40a56e0",
+            "ios": "1:1030754800289:ios:96c080f26543115a0a56e0",
+            "macos": "1:1030754800289:ios:96c080f26543115a0a56e0",
+            "web": "1:1030754800289:web:dee4aae77347a7200a56e0",
+            "windows": "1:1030754800289:web:10d5f745fd5a35e30a56e0"
+          }
+        }
+      }
+    }
+  }
+}

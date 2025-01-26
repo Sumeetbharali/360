@@ -5,12 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../models/member_model.dart';
 
 abstract class MembersDataSource {
-  Future<Either> getMembers();
+  Future<Either<List<MemberModel>, List<MemberModel>>> getMembers();
 }
 
 class MembersOnlineDataSource implements MembersDataSource {
   @override
-  Future<Either> getMembers() async {
+  Future<Either<List<MemberModel>, List<MemberModel>>> getMembers() async {
     User? user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       final membersCollectionRef = FirebaseFirestore.instance
@@ -25,15 +25,17 @@ class MembersOnlineDataSource implements MembersDataSource {
       // Fetch documents from the collection
       var data = await membersCollectionRef.get();
 
-      // If no documents exist in the collection (or it doesn't exist at all)
+      // If no documents exist in the collection (or collection doesn't exist)
       if (data.docs.isEmpty) {
+        print(
+            "${user.uid}>>>>>>>>>>>>>>>>> It is empty or no collection<<<<<<<<<<<");
         return const Left([]); // Return empty list if collection is empty
       }
 
       // Map documents to MemberModel if there are any
       List<MemberModel> membersList =
           data.docs.map((document) => document.data()).toList();
-
+      print(">>>>>>>>>Found Members<<<<<<<<<<<<<<<");
       return Right(membersList); // Return the list of valid members
     } else {
       print("No user is currently logged in.");

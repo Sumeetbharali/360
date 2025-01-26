@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "1030754800289",
+    "project_id": "gym360-d9898",
+    "storage_bucket": "gym360-d9898.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030754800289:android:fff39e37342f80100a56e0",
+        "android_client_info": {
+          "package_name": "com.example.gym360"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030754800289-brcqqs6p6gre2ajhn4hh11jpvp7ec14p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gym360",
+            "certificate_hash": "3e4dbd05173984f0f16c6ccb3dc598266294adfb"
+          }
+        },
+        {
+          "client_id": "1030754800289-5hffn1bpeuc6p0lbhu826sskm67ambrp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6dmuitLKrqMzrqy3hZTiI9HXt4UCRacM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030754800289-5hffn1bpeuc6p0lbhu826sskm67ambrp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1030754800289-kbalvai7m5njgo41po67dm8r2mpfrio5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gymManagement"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030754800289:android:bc0902b7821038f40a56e0",
+        "android_client_info": {
+          "package_name": "com.example.gym_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030754800289-5hffn1bpeuc6p0lbhu826sskm67ambrp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6dmuitLKrqMzrqy3hZTiI9HXt4UCRacM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030754800289-5hffn1bpeuc6p0lbhu826sskm67ambrp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1030754800289-kbalvai7m5njgo41po67dm8r2mpfrio5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gymManagement"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
