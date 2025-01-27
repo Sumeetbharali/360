@@ -58,8 +58,11 @@ class MembersOnlineDataSource implements MembersDataSource {
                   MemberModel.fromJson(snapshot.data()!),
               toFirestore: (MemberModel member, _) => member.toJson());
 
+      final memberDocRef = membersCollectionRef.doc();
+      member.id = memberDocRef.id;
+      return memberDocRef.set(member);
+
       // Fetch documents from the collection
-      var data = await membersCollectionRef.add(member);
     }
   }
 }

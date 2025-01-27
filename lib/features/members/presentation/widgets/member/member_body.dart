@@ -40,7 +40,7 @@ class MemberBody extends StatelessWidget {
                 valueTextStyle: MyTextStyles.fontInter11MainGreenRegular
                     .copyWith(color: Colors.white),
                 field: "M ID",
-                value: member.id),
+                value: member.id.substring(0, 10)),
           ],
         ),
         MemberDetailsField(
