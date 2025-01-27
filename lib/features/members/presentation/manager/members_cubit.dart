@@ -6,14 +6,18 @@ import 'package:gym_management/features/members/domain/repositories/members_repo
 import 'package:gym_management/features/members/domain/use_cases/members_use_case.dart';
 import 'package:meta/meta.dart';
 
+import '../../domain/use_cases/add_member_use_case.dart';
+
 part 'members_state.dart';
 
 class MembersCubit extends Cubit<MembersState> {
   MembersCubit() : super(MembersInitial());
   late MembersUseCase _membersUseCase;
+  late AddMemberUseCase _addMemberUseCase;
   late MembersRepositories _membersRepositories;
   late MembersDataSource _membersDataSource;
   List<MemberModel> members = [];
+  MemberModel member = MemberModel();
 
   Future<void> getMembers() async {
     _membersDataSource = MembersOnlineDataSource();
@@ -34,5 +38,14 @@ class MembersCubit extends Cubit<MembersState> {
         emit(MembersSuccess(members));
       },
     );
+  }
+
+  Future<void> addMember() async {
+    _membersDataSource = MembersOnlineDataSource();
+    _membersRepositories = MembersRepositoriesImp(_membersDataSource);
+    _addMemberUseCase = AddMemberUseCase(_membersRepositories);
+    emit(MembersLoading());
+    await _addMemberUseCase.execute(member);
+    emit(MemberAdded());
   }
 }

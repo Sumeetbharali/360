@@ -6,6 +6,8 @@ import '../models/member_model.dart';
 
 abstract class MembersDataSource {
   Future<Either<List<MemberModel>, List<MemberModel>>> getMembers();
+
+  Future<void> addMember(MemberModel member);
 }
 
 class MembersOnlineDataSource implements MembersDataSource {
@@ -40,6 +42,24 @@ class MembersOnlineDataSource implements MembersDataSource {
     } else {
       print("No user is currently logged in.");
       return const Left([]); // Return empty list if no user is logged in
+    }
+  }
+
+  @override
+  Future<void> addMember(MemberModel member) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final membersCollectionRef = FirebaseFirestore.instance
+          .collection('Users')
+          .doc(user.uid)
+          .collection('Members')
+          .withConverter<MemberModel>(
+              fromFirestore: (snapshot, _) =>
+                  MemberModel.fromJson(snapshot.data()!),
+              toFirestore: (MemberModel member, _) => member.toJson());
+
+      // Fetch documents from the collection
+      var data = await membersCollectionRef.add(member);
     }
   }
 }

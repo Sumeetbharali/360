@@ -51,36 +51,10 @@ class _AddMemberState extends State<AddMember> {
           ],
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-        child: Column(
-          children: [
-            AddMemberBody(),
-            Spacer(),
-            GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  height: 27.h,
-                  decoration: BoxDecoration(
-                      color: Colors.black,
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.white, // White shadow
-                          blurRadius: 2, // Blur intensity
-                          spreadRadius: 0.1, // Spread of the shadow
-                          offset: Offset(-0.75, 3), // Shadow position (x, y)
-                        ),
-                      ],
-                      border: Border.all(color: ColorPalette.mainGreen),
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Text(
-                    "Save",
-                    style: MyTextStyles.fontInter18MainGreenMedium,
-                  ),
-                ))
-          ],
-        ),
+      body: const Column(
+        children: [
+          AddMemberBody(),
+        ],
       ),
     );
   }

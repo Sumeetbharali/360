@@ -13,6 +13,8 @@ final class MembersSuccess extends MembersState {
 
 final class MembersLoading extends MembersState {}
 
+final class MemberAdded extends MembersState {}
+
 final class MembersFail extends MembersState {
   List<MemberModel> members;
 

@@ -12,9 +12,11 @@ class MemberModel {
     this.chest = "Chest",
     this.waist = "Waist",
     this.information = "More information",
-      this.gender = "Gender"});
+      this.gender = "Gender",
+      this.mobileNumber = "Number"});
 
   String name;
+  String mobileNumber;
   String id;
   String planExpiry;
   String dueAmount;
@@ -42,7 +44,8 @@ class MemberModel {
       weight: json['weight'] ?? "Weight",
       chest: json['chest'] ?? "Chest",
       waist: json['waist'] ?? "Waist",
-      information: json['information'] ?? "More information",
+        mobileNumber: json['mobileNumber'] ?? "No Number",
+        information: json['information'] ?? "More information",
         gender: json['gender'] ?? "Gender");
   }
 
@@ -61,7 +64,8 @@ class MemberModel {
       'chest': chest,
       'waist': waist,
       'information': information,
-      'gender': gender
+      'gender': gender,
+      'mobileNumber': mobileNumber
     };
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_management/core/configurations/pages_routes.dart';
 import 'package:gym_management/core/theme/color_palette.dart';
 import 'package:gym_management/core/theme/text_styles.dart';
+import 'package:gym_management/features/members/presentation/manager/members_cubit.dart';
 import 'package:gym_management/features/members/presentation/views/members.dart';
 
 import 'core/widgets/my_navigation_bar.dart';
@@ -51,7 +52,10 @@ class _MainLayoutState extends State<MainLayout> {
         ),
       ),
       backgroundColor: ColorPalette.darkGrey,
-      body: Members(),
+      body: BlocProvider(
+        create: (context) => MembersCubit(),
+        child: Members(),
+      ),
       bottomNavigationBar: MyNavigationBar(),
     );
   }

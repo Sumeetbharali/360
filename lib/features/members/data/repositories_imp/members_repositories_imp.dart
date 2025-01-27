@@ -18,4 +18,9 @@ class MembersRepositoriesImp implements MembersRepositories {
       return Right(right);
     });
   }
+
+  @override
+  Future<void> addMember(MemberModel member) async {
+    await _membersDataSource.addMember(member);
+  }
 }
