@@ -10,7 +10,8 @@ class MembersRepositoriesImp implements MembersRepositories {
   MembersDataSource _membersDataSource;
 
   @override
-  Future<Either<List<MemberModel>, List<MemberModel>>> getMembers() async {
+  Future<Either<List<MemberModel>, Stream<List<MemberModel>>>>
+      getMembers() async {
     final result = await _membersDataSource.getMembers();
     return result.fold((left) {
       return Left(left);

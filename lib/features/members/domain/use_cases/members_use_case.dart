@@ -8,7 +8,7 @@ class MembersUseCase {
 
   MembersUseCase(this._membersRepositories);
 
-  Future<Either<List<MemberModel>, List<MemberModel>>> execute() async {
+  Future<Either<List<MemberModel>, Stream<List<MemberModel>>>> execute() async {
     return await _membersRepositories.getMembers();
   }
 }

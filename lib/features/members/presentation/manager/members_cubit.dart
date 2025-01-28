@@ -33,9 +33,10 @@ class MembersCubit extends Cubit<MembersState> {
         emit(MembersFail(members));
       },
       (r) {
-        print("The length is >>>>>>>>>>>>>>> ${r.length}");
-        members = r;
-        emit(MembersSuccess(members));
+        r.listen((onData) {
+          members = onData;
+          emit(MembersSuccess(members));
+        }, onError: (error) => emit(MembersFail([])));
       },
     );
   }
