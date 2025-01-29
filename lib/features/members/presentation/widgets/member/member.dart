@@ -8,7 +8,6 @@ import '../../../../../core/theme/color_palette.dart';
 import '../../../../../core/widgets/space.dart';
 import '../../../data/models/member_model.dart';
 import '../../manager/members_cubit.dart';
-import '../member_top.dart';
 import 'member_nav_bar.dart';
 
 class Member extends StatelessWidget {
@@ -18,9 +17,10 @@ class Member extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<MembersCubit>();
+
     return GestureDetector(
       onTap: () {
-        var cubit = context.read<MembersCubit>();
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -46,8 +46,21 @@ class Member extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MemberTop(
-              member: member,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                horizontalSpace(65),
+                CircleAvatar(
+                  radius: 25.sp,
+                  backgroundColor: Colors.white,
+                ),
+                const Spacer(),
+                GestureDetector(
+                    onTap: () {
+                      cubit.deleteMember();
+                    },
+                    child: const Icon(Icons.delete)),
+              ],
             ),
             verticalSpace(5),
             MemberBody(member: member),

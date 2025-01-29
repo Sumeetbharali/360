@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gym_management/features/members/data/models/member_model.dart';
 
-import '../../../../core/configurations/pages_routes.dart';
 import '../../../../core/widgets/space.dart';
 import '../manager/members_cubit.dart';
 
@@ -12,7 +11,6 @@ class MemberTop extends StatelessWidget {
 
   int leftMargin;
   MemberModel member;
-
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<MembersCubit>();
@@ -29,8 +27,7 @@ class MemberTop extends StatelessWidget {
         GestureDetector(
             onTap: () {
               cubit.deleteMember();
-              Navigator.pushNamedAndRemoveUntil(
-                  context, PagesRoutes.mainLayout, (_) => false);
+              Navigator.pop(context);
             },
             child: const Icon(Icons.delete)),
       ],
