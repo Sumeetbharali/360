@@ -8,6 +8,8 @@ abstract class MembersDataSource {
   Future<Either<List<MemberModel>, Stream<List<MemberModel>>>> getMembers();
 
   Future<void> addMember(MemberModel member);
+
+  Future<void> deleteMember(String id);
 }
 
 class MembersOnlineDataSource implements MembersDataSource {
@@ -71,6 +73,20 @@ class MembersOnlineDataSource implements MembersDataSource {
       return memberDocRef.set(member);
 
       // Fetch documents from the collection
+    }
+  }
+
+  @override
+  Future<void> deleteMember(String id) async {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      print("deleted member id is $id");
+      await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(user.uid)
+          .collection('Members')
+          .doc(id)
+          .delete();
     }
   }
 }

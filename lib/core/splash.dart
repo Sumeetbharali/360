@@ -28,7 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacementNamed(context, PagesRoutes.onBoardingView);
     } else {
       // Navigate to Home Screen
-      Navigator.pushReplacementNamed(context, PagesRoutes.mainLayout);
+      Navigator.pushNamedAndRemoveUntil(
+          context, PagesRoutes.mainLayout, (_) => false);
     }
   }
 

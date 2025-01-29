@@ -7,6 +7,7 @@ import 'package:gym_management/features/members/domain/use_cases/members_use_cas
 import 'package:meta/meta.dart';
 
 import '../../domain/use_cases/add_member_use_case.dart';
+import '../../domain/use_cases/delete_member_use_case.dart';
 
 part 'members_state.dart';
 
@@ -14,6 +15,7 @@ class MembersCubit extends Cubit<MembersState> {
   MembersCubit() : super(MembersInitial());
   late MembersUseCase _membersUseCase;
   late AddMemberUseCase _addMemberUseCase;
+  late DeleteMemberUseCase _deleteMemberUseCase;
   late MembersRepositories _membersRepositories;
   late MembersDataSource _membersDataSource;
   List<MemberModel> members = [];
@@ -48,5 +50,14 @@ class MembersCubit extends Cubit<MembersState> {
     emit(MembersLoading());
     await _addMemberUseCase.execute(member);
     emit(MemberAdded());
+  }
+
+  Future<void> deleteMember() async {
+    _membersDataSource = MembersOnlineDataSource();
+    _membersRepositories = MembersRepositoriesImp(_membersDataSource);
+    _deleteMemberUseCase = DeleteMemberUseCase(_membersRepositories);
+    emit(MembersLoading());
+    await _deleteMemberUseCase.execute(member.id);
+    emit(MemberDeleted());
   }
 }

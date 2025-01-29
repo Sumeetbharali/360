@@ -24,4 +24,9 @@ class MembersRepositoriesImp implements MembersRepositories {
   Future<void> addMember(MemberModel member) async {
     await _membersDataSource.addMember(member);
   }
+
+  @override
+  Future<void> deleteMember(String id) async {
+    await _membersDataSource.deleteMember(id);
+  }
 }

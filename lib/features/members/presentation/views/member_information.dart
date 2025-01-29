@@ -10,13 +10,11 @@ import '../widgets/member_information/member_info_nav_bar.dart';
 import '../widgets/member_top.dart';
 
 class MemberInformation extends StatelessWidget {
-  MemberInformation({super.key});
+  MemberInformation({super.key, this.member});
 
+  MemberModel? member;
   @override
   Widget build(BuildContext context) {
-    MemberModel member =
-        ModalRoute.of(context)!.settings.arguments as MemberModel;
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -62,10 +60,10 @@ class MemberInformation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(10),
-            MemberTop(leftMargin: 140),
+            MemberTop(leftMargin: 140, member: member!),
             verticalSpace(5),
             MemberInfoBody(
-              member: member,
+              member: member!,
             ),
             const Spacer(),
             const MemberInfoNavBar(),
